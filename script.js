@@ -1,6 +1,8 @@
 var gid,elemnt,btncol = 0,gidd;
 function selecttoedit(id, place) {
   var tagName = document.getElementById(id).tagName;gid=id;elemnt = tagName.toString();
+  document.getElementById('movbtns1').style.display = "block";
+  document.getElementById('movbtns2').style.display = "block";
   if (tagName.toString() == "P") {
     var cls = document.getElementById(id).parentElement.getAttribute("class");
     if (cls == "eholdr") {
@@ -583,12 +585,6 @@ ftcon=["<div  style=@@width: 100%;max-width:300px;margin:0 auto;display: grid;ju
 midcon=["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: center;@@ id=@@divp_", "@@>"];//need end
 hrcon=["<div style=@@width: 100%;max-width:600px;margin:0 auto;display: grid;justify-content: center;@@ id=@@divt_", "@@ class=@@hdrclass@@>"];//need end
 end=["</div>"];
-var homers = ["<div class=@@horeelmnts@@>             <p style=@@text-align:center;@@><br/>Welcome to AIESEC$s E-mail Desinger<br/><br/></p>           </div>           <div class=@@horeelmnts@@>             <input type=@@button@@ onclick=@@adders($bgcol$)@@ value=@@Change Background Color@@>           </div>           <div class=@@horeelmnts@@>             <input type=@@button@@ onclick=@@adders($laycol$)@@ value=@@Change Layout Color@@>           </div>           <div class=@@horeelmnts@@>             <input type=@@button@@ onclick=@@adders($ele$)@@ value=@@Add Elements@@>           </div>"];
-setTimeout(function() {
-  homers[0] = homers[0].replaceAll("$", "'");
-  homers[0] = homers[0].replaceAll("@@", "\"");
-  document.getElementById('homer').innerHTML = homers[0];
-}, 500)
 function openeshare(arg) {
   var contr = document.getElementById('E_shower').style.display;
   if (arg == "op") {
