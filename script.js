@@ -570,17 +570,17 @@ function downgf(place, nameo, holders, num) {
   gid = document.getElementById(nameo +"_"+(eval(num)+1)).getAttribute('id');
 }
 
-img = ["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: center;@@ id=@@divp_", "@@><!--secound pics--><img src=@@pics/3.jpg@@ alt=@@act to impact@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></div>"];
+img = ["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: center;@@ id=@@divp_", "@@><!--secound pics--><img src=@@https://mirakski.github.io/E-mail-Designer/pics/3.jpg@@ alt=@@act to impact@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></div>"];
 button = ["<button type=@@button@@ style=@@margin: 10px auto;padding: 12px 22px;border:none;width:50%;max-width:100%;background:rgb(0,120,220);@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@> <a id=@@btnp_", "@@ href=@@#@@ target=@@iframe_a@@ style=@@color:white;font-Weight:bold;@@>link here</a> </button>"];
 text = ["<p style=@@margin-left:20px;margin-right:20px;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Hello Dear,I hope this email finds you well, I$m Abdelkarim Khelfaoui the OEVP MKT&PD of AIESEC In Ouargla.</p>"];
 title= ["<p style=@@margin-left:20px;margin-right:20px;font-size:25px; font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>AIESEC IN OUARGLA</p>"];
 subtitle=["<p style=@@margin-left:20px;margin-right:20px;font-size:21px;font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Global Impact</p>"];
-icon=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id)@@ id=@@a_", "@@ class=@@anclass@@>                 <img style=@@margin: 10px;@@ src=@@pics/5.png@@ alt=@@aiesec in ouargla@@ width=@@70%;@@>               </a>"];
+icon=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id)@@ id=@@a_", "@@ class=@@anclass@@>                 <img style=@@margin: 10px;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/5.png@@ alt=@@aiesec in ouargla@@ width=@@70%;@@>               </a>"];
 header=["<p class=@@hdrelem@@ style=@@margin-left:20px;margin-right:20px;margin-bottom:20px;font-size:30px;text-align:center; font-Weight:bold;@@  onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>AIESEC in Ouargla Recruitment</p>"];
-logo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>"];
-flogo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@>"];
+logo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>"];
+flogo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@>"];
 link=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@ class=@@link@@> Link Here </a>"];
-video=["<video src=@@#@@ autoplay controls poster=@@pics/3.jpg@@ poster=@@pics/3.jpg@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></video>"];
+video=["<video src=@@#@@ autoplay controls poster=@@https://mirakski.github.io/E-mail-Designer/pics/3.jpg@@ poster=@@pics/3.jpg@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></video>"];
 ftcon=["<div  style=@@width: 100%;max-width:300px;margin:0 auto;display: grid;justify-content: center;@@ class=@@ftrhdr@@ id=@@diva_", "@@ class=@@ftrhdr@@>"];
 midcon=["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: center;@@ id=@@divp_", "@@>"];//need end
 hrcon=["<div style=@@width: 100%;max-width:600px;margin:0 auto;display: grid;justify-content: center;@@ id=@@divt_", "@@ class=@@hdrclass@@>"];//need end
