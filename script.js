@@ -1,0 +1,613 @@
+var gid,elemnt,btncol = 0,gidd;
+function selecttoedit(id, place) {
+  var tagName = document.getElementById(id).tagName;gid=id;elemnt = tagName.toString();
+  if (tagName.toString() == "P") {
+    var cls = document.getElementById(id).parentElement.getAttribute("class");
+    if (cls == "eholdr") {
+      document.getElementById('movbtns0').removeAttribute("onclick");
+      document.getElementById('movbtns1').removeAttribute("onclick");
+      document.getElementById('movbtns2').removeAttribute("onclick");
+      document.getElementById('movbtns0').setAttribute("onclick", "textstyler('dl')");
+      document.getElementById('movbtns1').setAttribute("onclick", "textstyler('up')");
+      document.getElementById('movbtns2').setAttribute("onclick", "textstyler('dn')");
+    }
+    else if (cls == "hdrclass") {
+      document.getElementById('movbtns0').removeAttribute("onclick");
+      document.getElementById('movbtns1').removeAttribute("onclick");
+      document.getElementById('movbtns2').removeAttribute("onclick");
+      document.getElementById('movbtns0').setAttribute("onclick", "textstyler('dlhd')");
+      document.getElementById('movbtns1').setAttribute("onclick", "textstyler('uphd')");
+      document.getElementById('movbtns2').setAttribute("onclick", "textstyler('dnhd')");
+    }
+    document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
+    document.getElementById('writer').style.display = "block";document.getElementById('adder').style.display = "none";
+    document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";
+    document.getElementById('txtar').value = document.getElementById(id).innerText;
+    var fontsize = document.getElementById(id).style.fontSize;
+    if (fontsize != "" && fontsize != undefined) {
+      document.getElementById('fsz').value = fontsize.split("px")[0].toString();
+    }
+    else {
+      document.getElementById('fsz').value = 16;
+    }
+  }
+  else if (tagName.toString() == "A") {
+    var cls = document.getElementById(gid).getAttribute("class");
+    if (cls.toString() == "anclass") {
+      document.getElementById('iconhld').style.display = "grid";
+      document.getElementById('iconhlds').style.display = "flex";
+      document.getElementById('txthld').style.display = "none";
+      document.getElementById('txtlnk').style.display = "none";
+      document.getElementById('link_editor').innerText="Icon Editor";
+    }
+    else if (cls.toString() == "link") {
+      document.getElementById('iconhld').style.display = "none";
+      document.getElementById('iconhlds').style.display = "none";
+      document.getElementById('txthld').style.display = "grid";
+      document.getElementById('txtlnk').style.display = "flex";
+      document.getElementById('txtlnk').value = document.getElementById(id).innerHTML;
+      document.getElementById('link_editor').innerText="Link Editor";
+    }
+    //document.getElementById('movbtns0').removeAttribute("onclick");
+    document.getElementById('movbtns1').style.display = "none";
+    document.getElementById('movbtns2').style.display = "none";
+    document.getElementById('movbtns0').setAttribute("onclick", "textstyler('dlft')");
+    //document.getElementById('movbtns1').setAttribute("onclick", "textstyler('upft')");
+    //document.getElementById('movbtns2').setAttribute("onclick", "textstyler('dnft')");
+    document.getElementById('txtlnk').value = document.getElementById(id).innerHTML;
+    document.getElementById('culnk').innerHTML = document.getElementById(gid).getAttribute("href");
+    document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "block";
+    document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
+    document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";
+    document.getElementById('iframe_a').setAttribute("src", "");
+  }
+  else if (tagName.toString() == "IMG") {
+    if (place == "ftr") {
+      document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
+      document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
+      document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
+      document.getElementById('imagerhd').style.display = "block";
+    }
+    else {
+      document.getElementById('imager').style.display = "block";document.getElementById('linker').style.display = "none";
+      document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
+      document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
+      document.getElementById('imagerhd').style.display = "none";
+    }
+  }
+  else if (tagName.toString() == "BUTTON") {
+    document.getElementById('btnlnk').innerHTML = document.getElementById('btn' + gid).getAttribute("href");
+    document.getElementById('txtars').value = document.getElementById('btn' + gid).innerHTML;
+    document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
+    document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
+    document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "block";
+    document.getElementById('imagerhd').style.display = "none";
+    document.getElementById('iframe_a').setAttribute("src", "");gidd=gid;
+  }
+  else if (tagName.toString() == "VIDEO") {
+    document.getElementById('iconhld').style.display = "none";
+    document.getElementById('iconhlds').style.display = "none";
+    document.getElementById('txthld').style.display = "none";
+    document.getElementById('txtlnk').style.display = "none";
+    document.getElementById('link_editor').innerText="Video Editor";
+    document.getElementById('culnk').innerHTML = document.getElementById(gid).getAttribute("src");
+    document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "block";
+    document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
+    document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";
+    document.getElementById('iframe_a').setAttribute("src", "");
+  }
+}
+const txtar = document.getElementById('txtar');
+txtar.onkeyup = () => {
+  document.getElementById(gid).innerText = document.getElementById('txtar').value;
+}
+const txtars = document.getElementById('txtars');
+txtars.onkeyup = () => {
+  document.getElementById('btn' + gidd).innerText = document.getElementById('txtars').value;
+}
+const txtlnk = document.getElementById('txtlnk');
+txtlnk.onkeyup = () => {
+  document.getElementById(gid).innerHTML = document.getElementById('txtlnk').value;
+}
+function textstyler(arg) {
+  if (arg=="b") {
+    var sty = document.getElementById(gid).style.fontWeight;
+    if (sty == "bold") {
+      document.getElementById(gid).style.fontWeight = "";
+    }
+    else {
+      document.getElementById(gid).style.fontWeight = "bold";
+    }
+  }
+  else if (arg=="i") {
+    var sty = document.getElementById(gid).style.fontStyle;
+    if (sty == "italic") {
+      document.getElementById(gid).style.fontStyle = "";
+    }
+    else {
+      document.getElementById(gid).style.fontStyle = "italic";
+    }
+  }
+  else if (arg=="c") {
+    var vew = document.getElementById('setholder').style.display;
+    if (vew == "block") {
+      document.getElementById('setholder').style.display = "none";
+    }
+    else {
+      document.getElementById('setholder').style.display = "block";
+    }
+  }
+  else if (arg=="sz") {
+    document.getElementById(gid).style.fontSize = document.getElementById('fsz').value + "px";
+  }
+  else if (arg=="-") {
+    var sz = document.getElementById('fsz').value;
+    document.getElementById('fsz').value = eval(sz)-2;
+    document.getElementById(gid).style.fontSize = document.getElementById('fsz').value + "px";
+
+  }
+  else if (arg=="+") {
+    var sz = document.getElementById('fsz').value;
+    document.getElementById('fsz').value = eval(sz)+2;
+    document.getElementById(gid).style.fontSize = document.getElementById('fsz').value + "px";
+  }
+  else if (arg == "up") {
+    var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
+    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('eholdr');num = num.toString();
+    var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
+    upg(nameo, num, holders, place, holdeer);
+  }
+  else if (arg == "dn") {
+    var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
+    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('eholdr');num = num.toString();
+    var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
+    downg(place, nameo, holders, num, holdeer);
+  }
+  else if (arg == "dl") {
+    document.getElementById('div' + gid).remove();
+    holders = document.getElementsByClassName('eholdr')
+    for (var i = 0; i < holders.length; i++) {
+      document.getElementsByClassName('eholdr')[i].setAttribute("id", "divp_"+i);
+    }
+  }
+  else if (arg == "chlk") {
+    var link = document.getElementById('linkhld').value;
+    document.getElementById(gid).setAttribute("href", link);
+    document.getElementById('culnk').innerHTML = link;
+    document.getElementById('linkhld').value = "";
+  }
+  else if (arg == "uphd") {
+    var place = document.getElementById(gid).getAttribute('id');var holders = [];
+    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('hdrelem');num = num.toString();
+    var nameo = place.split("_")[0].toString();
+    upgf(nameo, num, holders, place);
+  }
+  else if (arg == "dnhd") {
+    console.log(gid);
+    var place = document.getElementById(gid).getAttribute('id');var holders = [];
+    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('hdrelem');num = num.toString();
+    var nameo = place.split("_")[0].toString();
+    downgf(place, nameo, holders, num);
+    gid = document.getElementById(gid).getAttribute('id');
+  }
+  else if (arg == "dlhd") {
+    document.getElementById(gid).remove();
+    holders = document.getElementsByClassName('hdrelem');
+    for (var i = 0; i < holders.length; i++) {
+      document.getElementsByClassName('hdrclass')[i].setAttribute("id", "t_"+i);
+    }
+  }
+  else if (arg == "upft") {
+    var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
+    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('ftrhdr');
+    var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
+    upg(nameo, num, holders, place, holdeer);
+  }
+  else if (arg == "dnft") {
+    var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
+    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('ftrhdr');num = num.toString();
+    var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
+    downg(place, nameo, holders, num, holdeer);
+  }
+  else if (arg == "dlft") {
+    var cla = document.getElementById(gid).getAttribute("class");
+    if (cla == "anclass") {
+      document.getElementById(gid).remove();
+      holders = document.getElementsByClassName('anclass');
+      for (var i = 0; i < holders.length; i++) {
+        document.getElementsByClassName('anclass')[i].setAttribute("id", "a_"+i);
+      }
+    }
+    else {
+      document.getElementById('div' + gid).remove();
+      holders = document.getElementsByClassName('ftrclass');
+      for (var i = 0; i < holders.length; i++) {
+        document.getElementsByClassName('ftrclass')[i].setAttribute("id", "diva_"+i);
+      }
+    }
+  }
+  else if (arg == "btncolor") {
+    document.getElementById('setholder').style.display = "block";
+    btncol = 1;
+  }
+  else if (arg == "txtcolor") {
+    document.getElementById('setholder').style.display = "block";
+    btncol = 0;
+  }
+  else if (arg == "chbtn") {
+    var link = document.getElementById('linkbtn').value;
+    document.getElementById('btn' + gid).setAttribute("href", link);
+    document.getElementById('btnlnk').innerHTML = link;
+    document.getElementById('linkbtn').value = "";
+  }
+  else if (arg == "chvid") {
+    var link = document.getElementById('linkhld').value;
+    document.getElementById(gid).setAttribute("src", link);
+    document.getElementById('culnk').innerHTML = link;
+    document.getElementById('linkhld').value = "";
+    //yti = link.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+    //var links = "https://i3.ytimg.com/vi/" + yti[1] + "/maxresdefault.jpg";
+    //document.getElementById(gid).setAttribute("poster", links);
+  }
+  else if (true) {
+    //
+  }
+  else if (true) {
+    //
+  }
+}
+function setcoolers(color) {
+  if (elemnt == "P") {
+    document.getElementById(gid).style.color = color;
+  }
+  else if (elemnt == "A") {
+    document.getElementById(gid).style.color = color;
+  }
+  else if (elemnt == "DIV") {
+    document.getElementById(gid).style.backgroundColor = color;
+  }
+  else if (elemnt == "BUTTON") {
+    if (btncol == 0) {
+      //to text
+      document.getElementById('btn' + gid).style.color = color;
+    }
+    else if (btncol == 1) {
+      //to BG
+      document.getElementById(gid).style.backgroundColor = color;
+    }
+  }
+  else if (elemnt == "cont") {
+    document.getElementById(gid).style.backgroundColor = color;
+  }
+}
+function Close(arg) {
+  if (arg == "color") {
+    document.getElementById('setholder').style.display = "none";
+  }
+  else if (arg == "hm") {
+    document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
+    document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
+    document.getElementById('homer').style.display = "block";document.getElementById('buttoner').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";
+  }
+}
+var img, button, text, logo, header, title, subtitle, icon, link, video, ftcon, midcon, hrcon,end;
+function adders(arg) {
+  if (arg == "ele") {
+    document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
+    document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "block";
+    document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";
+  }
+  else if (arg == "bgcol") {
+    gid = "E_mail";elemnt = "cont";document.getElementById('setholder').style.display = "block";
+  }
+  else if (arg == "laycol") {
+    gid = "condev";elemnt = "cont";document.getElementById('setholder').style.display = "block";
+  }
+  else if (arg == "LG") {
+    numhdr=document.getElementsByClassName('hdrelem').length;
+    var elemnts = CNT(logo, numhdr);
+    document.getElementById('headerX_0').innerHTML += elemnts;numhdr +=1;
+  }
+  else if (arg == "HDR") {
+    numhdr=document.getElementsByClassName('hdrelem').length;
+    var elemnts = CNT(header, numhdr);
+    document.getElementById('headerX_0').innerHTML += elemnts;numhdr +=1;
+  }
+  else if (arg == "TTL") {
+    numhdr=document.getElementsByClassName('eholdr').length;
+    var elemnts = CNT(midcon, numhdr);
+    elemnts += CNT(title, numhdr);elemnts += end
+    document.getElementById('condev').innerHTML += elemnts;
+    numhdr +=1;
+  }
+  else if (arg == "STTL") {
+    numhdr=document.getElementsByClassName('eholdr').length;
+    var elemnts = CNT(midcon, numhdr);
+    elemnts += CNT(subtitle, numhdr);elemnts += end
+    document.getElementById('condev').innerHTML += elemnts;
+    numhdr +=1;
+  }
+  else if (arg == "TX") {
+    numhdr=document.getElementsByClassName('eholdr').length;
+    var elemnts = CNT(midcon, numhdr);
+    elemnts += CNT(text, numhdr);elemnts += end;
+    document.getElementById('condev').innerHTML += elemnts;
+    numhdr +=1;
+  }
+  else if (arg == "MG") {
+    numhdr=document.getElementsByClassName('eholdr').length;
+    var elemnts = CNT(midcon, numhdr);
+    elemnts += CNT(img, numhdr);elemnts += end;
+    document.getElementById('condev').innerHTML += elemnts;
+    numhdr +=1;
+  }
+  else if (arg == "BT") {
+    numhdr=document.getElementsByClassName('eholdr').length;
+    var elemnts = CNT(midcon, numhdr);
+    elemnts += CNT(button, numhdr);elemnts += end;
+    document.getElementById('condev').innerHTML += elemnts;
+    numhdr +=1;
+  }
+  else if (arg == "VI") {
+    numhdr=document.getElementsByClassName('eholdr').length;
+    var elemnts = CNT(midcon, numhdr);
+    elemnts += CNT(video, numhdr);elemnts += end;
+    document.getElementById('condev').innerHTML += elemnts;
+    numhdr +=1;
+  }
+  else if (arg == "FLG") {
+    numhdr=document.getElementsByClassName('ftrhdr').length;
+    var elemnts = CNT(ftcon, numhdr);
+    elemnts += CNT(flogo, numhdr);elemnts += end;
+    document.getElementById('footerx').innerHTML += elemnts;
+    numhdr +=1;
+  }
+  else if (arg == "SL") {
+    numhdr=document.getElementsByClassName('anclass').length;
+    var elemnts = CNT(ftcon, numhdr);
+    elemnts += CNT(icon, numhdr);elemnts += end;
+    document.getElementById('diva_0').innerHTML += elemnts;
+    numhdr +=1;
+  }
+  else if (arg == "LK") {
+    numhdr=document.getElementsByClassName('anclass').length;
+    var elemnts = CNT(ftcon, numhdr);
+    elemnts += CNT(link, numhdr);elemnts += end;
+    document.getElementById('footerx').innerHTML += elemnts;
+    numhdr +=1;
+  }
+}
+function CNT(arg, count) {
+  var elemnt= "";
+  for (var i = 0; i < arg.length-1; i++) {
+    arg[i] = arg[i].replaceAll("$", "'");
+    arg[i] = arg[i].replaceAll("@@", "\"");
+    elemnt += arg[i]+count;
+  }
+  arg[arg.length-1] = arg[arg.length-1].replaceAll("$", "'");
+  arg[arg.length-1] = arg[arg.length-1].replaceAll("@@", "\"");
+  elemnt += arg[arg.length-1];
+  return elemnt;
+}
+function picsx(arg, gr) {
+  var wd = document.getElementById(gid).width;
+  if (arg == "zi") {
+    var wdx = wd + 10;
+    console.log(wdx);
+    if (wdx >= 600) {
+      document.getElementById(gid).style.width = 600 + "px";
+    }
+    else {
+      document.getElementById(gid).style.width = wdx + "px";
+    }
+  }
+  else if (arg == "zo") {
+    var wdx = wd - 10;
+    if (wdx <= 300) {
+      document.getElementById(gid).style.width = 300 + "px";
+    }
+    else {
+      document.getElementById(gid).style.width = wdx + "px";
+    }
+  }
+  else if (arg == "ch") {
+    var whatpix;
+    if (gr.files && gr.files[0]) {
+      var img = document.getElementById('imgpicker').value;
+      img11 = img.split("\\");
+      var imghd = img11.splice(0, 2);
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        here = e.target.result;
+        document.getElementById(gid).setAttribute("src", here);
+        //var whatpic = "url('"+here+"')";whatpix = here;
+      };
+
+      reader.readAsDataURL(gr.files[0]);
+      //var myObject2 = new ActiveXObject("Scripting.FileSystemObject");
+      //var f = myObject2.file.copy(here, 'C:\\folderB\\'+img11);
+    }
+  }
+  else if (arg == "chpic") {
+    var whatpix;
+    if (gr.files && gr.files[0]) {
+      var img = document.getElementById('thisicon').value;
+      img11 = img.split("\\");
+      var imghd = img11.splice(0, 2);
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        here = e.target.result;
+        console.log(document.getElementById(gid).childNodes[1]);
+        document.getElementById(gid).childNodes[1].setAttribute("src", here);
+      };
+      reader.readAsDataURL(gr.files[0]);
+    }
+  }
+  else if (arg == "chlogo") {
+    var whatpix;
+    if (gr.files && gr.files[0]) {
+      var img = document.getElementById('iconpicker').value;
+      img11 = img.split("\\");
+      var imghd = img11.splice(0, 2);
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        here = e.target.result;
+        document.getElementById(gid).setAttribute("src", here);
+      };
+      reader.readAsDataURL(gr.files[0]);
+    }
+  }
+}
+function upg(nameo, num, holders, place, holdeer) {
+  document.getElementById(nameo+"_"+eval(num-1)).setAttribute("id", nameo+"inf");var newt = [];
+  for (var i = 0; i < holders.length; i++) {
+    if (i == (num-1)) {
+      newt[i] = holders[num];
+      document.getElementById(place).setAttribute("id", (nameo +"_"+ i).toString());
+    }
+    else if (i == num) {
+      newt[i] = holders[num-1];
+      document.getElementById(nameo+"inf").setAttribute("id", (nameo +"_"+ i).toString());
+    }
+    else {
+      newt[i] = holders[i]
+    }
+  }
+  for (var i = 0; i < holders.length; i++) {
+    try {holders[i].remove();} catch (e) {} finally {}
+  }
+  for (var i = 0; i < newt.length; i++) {
+    try {document.getElementById(holdeer).appendChild(newt[i]);} catch (e) {} finally {}
+  }
+}
+function downg(place, nameo, holders, num) {
+  document.getElementById(place).setAttribute("id", nameo+"inf");var newt = [];
+  for (var i = 0; i < holders.length; i++) {
+    if (i == (num)) {
+      newt[i] = holders[eval(eval(num)+1)];
+      console.log((nameo+"_"+ eval(eval(i)+1)).toString());
+      document.getElementById((nameo+"_"+ eval(eval(i)+1)).toString()).setAttribute("id", (nameo +"_"+ i).toString());
+    }
+    else if (i == eval(eval(num)+1)) {
+      newt[i] = holders[eval(num)];
+      document.getElementById(nameo+"inf").setAttribute("id", (nameo +"_"+ i).toString());
+    }
+    else {
+      newt[i] = holders[i];
+    }
+  }
+  console.log(newt[0],newt[1],newt[2],newt[3]);
+  for (var i = 0; i < holders.length; i++) {
+    try {holders[i].remove();} catch (e) {} finally {}
+  }
+  for (var i = 0; i < newt.length; i++) {
+    try {document.getElementById(holdeer).appendChild(newt[i]);} catch (e) {} finally {}
+  }
+}
+
+function upgf(nameo, num, holders, place, palce) {
+  document.getElementById(nameo+"_"+eval(num-1)).setAttribute("id", nameo+"inf");var newt = [];
+  for (var i = 0; i < holders.length; i++) {
+    if (i == (num-1)) {
+      newt[i] = holders[num];
+      document.getElementById(place).setAttribute("id", (nameo +"_"+ i).toString());
+    }
+    else if (i == num) {
+      newt[i] = holders[num-1];
+      document.getElementById(nameo+"inf").setAttribute("id", (nameo +"_"+ i).toString());
+    }
+    else {
+      newt[i] = holders[i]
+    }
+  }
+  for (var i = 0; i < newt.length; i++) {
+    if (nameo == "t") {
+      try {document.getElementById('headerX_0').appendChild(newt[i]);} catch (e) {} finally {}
+    }
+    else if (nameo == "a") {
+      try {document.getElementById('footerx').appendChild(newt[i]);} catch (e) {} finally {}
+    }
+  }
+  gid = document.getElementById(nameo +"_"+(eval(num)-1)).getAttribute('id');
+}
+function downgf(place, nameo, holders, num) {
+  document.getElementById(place).setAttribute("id", nameo+"inf");var newt = [];
+  for (var i = 0; i < holders.length; i++) {
+    if (i == (num)) {
+      newt[i] = holders[eval(eval(num)+1)];
+      console.log((nameo+"_"+ eval(eval(i)+1)));
+      document.getElementById((nameo+"_"+ eval(eval(i)+1)).toString()).setAttribute("id", (nameo +"_"+ i).toString());
+    }
+    else if (i == eval(eval(num)+1)) {
+      newt[i] = holders[eval(num)];
+      document.getElementById(nameo+"inf").setAttribute("id", (nameo +"_"+ i).toString());
+    }
+    else {
+      newt[i] = holders[i];
+    }
+  }
+  for (var i = 0; i < holders.length; i++) {
+    try {holders[i].remove();} catch (e) {} finally {}
+  }
+  var sun = document.getElementById(gid).getAttribute('id'), sim = sun.split("_")[0].toString();
+
+  for (var i = 0; i < newt.length; i++) {
+    if (sim == "t") {
+      try {document.getElementById('headerX_0').appendChild(newt[i]);} catch (e) {} finally {}
+    }
+    else if (sim == "a") {
+      try {document.getElementById('footerx').appendChild(newt[i]);} catch (e) {} finally {}
+    }
+  }
+  gid = document.getElementById(nameo +"_"+(eval(num)+1)).getAttribute('id');
+}
+
+img = ["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: center;@@ id=@@divp_", "@@><!--secound pics--><img src=@@pics/3.jpg@@ alt=@@act to impact@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></div>"];
+button = ["<button type=@@button@@ style=@@margin: 10px auto;padding: 12px 22px;border:none;width:50%;max-width:100%;background:rgb(0,120,220);@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@> <a id=@@btnp_", "@@ href=@@#@@ target=@@iframe_a@@ style=@@color:white;font-Weight:bold;@@>link here</a> </button>"];
+text = ["<p style=@@margin-left:20px;margin-right:20px;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Hello Dear,I hope this email finds you well, I$m Abdelkarim Khelfaoui the OEVP MKT&PD of AIESEC In Ouargla.</p>"];
+title= ["<p style=@@margin-left:20px;margin-right:20px;font-size:25px; font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>AIESEC IN OUARGLA</p>"];
+subtitle=["<p style=@@margin-left:20px;margin-right:20px;font-size:21px;font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Global Impact</p>"];
+icon=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id)@@ id=@@a_", "@@ class=@@anclass@@>                 <img style=@@margin: 10px;@@ src=@@pics/5.png@@ alt=@@aiesec in ouargla@@ width=@@70%;@@>               </a>"];
+header=["<p class=@@hdrelem@@ style=@@margin-left:20px;margin-right:20px;margin-bottom:20px;font-size:30px;text-align:center; font-Weight:bold;@@  onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>AIESEC in Ouargla Recruitment</p>"];
+logo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>"];
+flogo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@>"];
+link=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@ class=@@link@@> Link Here </a>"];
+video=["<video src=@@#@@ autoplay controls poster=@@pics/3.jpg@@ poster=@@pics/3.jpg@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></video>"];
+ftcon=["<div  style=@@width: 100%;max-width:300px;margin:0 auto;display: grid;justify-content: center;@@ class=@@ftrhdr@@ id=@@diva_", "@@ class=@@ftrhdr@@>"];
+midcon=["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: center;@@ id=@@divp_", "@@>"];//need end
+hrcon=["<div style=@@width: 100%;max-width:600px;margin:0 auto;display: grid;justify-content: center;@@ id=@@divt_", "@@ class=@@hdrclass@@>"];//need end
+end=["</div>"];
+var homers = ["<div class=@@horeelmnts@@>             <p style=@@text-align:center;@@><br/>Welcome to AIESEC$s E-mail Desinger<br/><br/></p>           </div>           <div class=@@horeelmnts@@>             <input type=@@button@@ onclick=@@adders($bgcol$)@@ value=@@Change Background Color@@>           </div>           <div class=@@horeelmnts@@>             <input type=@@button@@ onclick=@@adders($laycol$)@@ value=@@Change Layout Color@@>           </div>           <div class=@@horeelmnts@@>             <input type=@@button@@ onclick=@@adders($ele$)@@ value=@@Add Elements@@>           </div>"];
+setTimeout(function() {
+  homers[0] = homers[0].replaceAll("$", "'");
+  homers[0] = homers[0].replaceAll("@@", "\"");
+  document.getElementById('homer').innerHTML = homers[0];
+}, 500)
+function openeshare(arg) {
+  var contr = document.getElementById('E_shower').style.display;
+  if (arg == "op") {
+    if (contr == "block") {
+      document.getElementById('E_shower').style.display = "none";
+    }
+    else {
+      document.getElementById('E_shower').style.display = "block";
+    }
+  }
+  else if (arg == "cp") {
+    var mail = document.getElementById('E_mail_doc').innerHTML;
+    mail = mail.replaceAll("iframe_a", "_blank");
+    mail = mail.replaceAll("onclick=", "");mail = mail.replaceAll("id=", "");
+    document.getElementById('E_copie').value=mail;document.getElementById('E_copie').style.display = "block";
+    document.getElementById('E_copie').select();document.execCommand("copy");
+    document.getElementById('E_copie').style.display = "none";alert("HTML Coode Copied");
+  }
+  else if (arg == "dl") {
+    //
+  }
+}
