@@ -2,7 +2,7 @@
 .hholder {margin: 0;padding: 0;width: 49%;height: 100%;}
 .hholders {margin: 0;padding: 0;width: 49%;height: 100%;}
 .editor {margin: 0;padding: 0;width: 49%;height: 100%;display: block;position: fixed;top: 0;right: 0;z-index: 5;backdrop-filter:blur(2px);background: rgba(50,50,50,0.2);color: white;overflow: hidden;}
-.editors {margin: 0;padding: 0;width: 49%;height: 100%;display: block;position: fixed;top: 0;right: 0;background-image:url("pics/px.jpeg");background-clip: border-box;background-size: contain;}
+.editors {margin: 0;padding: 0;width: 49%;height: 100%;display: block;position: fixed;top: 0;right: 0;background-image:url("pics/px.jpg");background-clip: border-box;background-size: contain;}
 .homer {width: 100%;height: 100%;display: grid; justify-content: center;}
 .adder {width: 100%;height: 100%;display: none; justify-content: center;}
 .writer {display: none;width: 100%;height: 100%;}
