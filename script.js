@@ -80,6 +80,8 @@ function selecttoedit(id, place) {
     }
   }
   else if (tagName.toString() == "TABLE") {
+    document.getElementById('btnlinkch').removeAttribute("onclick");
+    document.getElementById('btnlinkch').setAttribute("onclick","textstyler('chbtn')");
     document.getElementById('coloerseter').style.display = "block";
     document.getElementById('textseter').style.display = "block";
     document.getElementById('txtars').style.display = "block";
@@ -93,6 +95,8 @@ function selecttoedit(id, place) {
     document.getElementById('iframe_a').setAttribute("src", "");gidd=gid;
   }
   else if (tagName.toString() == "VIDEO") {
+    document.getElementById('btnlinkch').removeAttribute("onclick");
+    document.getElementById('btnlinkch').setAttribute("onclick","textstyler('chvida')");
     document.getElementById('coloerseter').style.display = "none";
     document.getElementById('textseter').style.display = "none";
     document.getElementById('txtars').style.display = "none";
