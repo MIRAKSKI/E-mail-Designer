@@ -425,51 +425,22 @@ function picsx(arg, gr) {
   }
   else if (arg == "ch") {
     var whatpix;
-    if (gr.files && gr.files[0]) {
-      var img = document.getElementById('imgpicker').value;
-      img11 = img.split("\\");
-      var imghd = img11.splice(0, 2);
-      var reader = new FileReader();
-
-      reader.onload = function (e) {
-        here = e.target.result;
-        document.getElementById(gid).setAttribute("src", here);
-        //var whatpic = "url('"+here+"')";whatpix = here;
-      };
-
-      reader.readAsDataURL(gr.files[0]);
-      //var myObject2 = new ActiveXObject("Scripting.FileSystemObject");
-      //var f = myObject2.file.copy(here, 'C:\\folderB\\'+img11);
-    }
+    var img = document.getElementById('imgpicker').value;
+    var link = FFGDFL(img);
+    var here = 'https://drive.google.com/uc?export=view&id=' + link;
+    document.getElementById(gid).setAttribute("src", here);
   }
   else if (arg == "chpic") {
-    var whatpix;
-    if (gr.files && gr.files[0]) {
-      var img = document.getElementById('thisicon').value;
-      img11 = img.split("\\");
-      var imghd = img11.splice(0, 2);
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        here = e.target.result;
-        console.log(document.getElementById(gid).childNodes[1]);
-        document.getElementById(gid).childNodes[1].setAttribute("src", here);
-      };
-      reader.readAsDataURL(gr.files[0]);
-    }
+    var whatpix;var img = document.getElementById('thisicon').value;
+    var link = FFGDFL(img);
+    var here = 'https://drive.google.com/uc?export=view&id=' + link;
+    document.getElementById(gid).childNodes[1].setAttribute("src", here);
   }
   else if (arg == "chlogo") {
-    var whatpix;
-    if (gr.files && gr.files[0]) {
-      var img = document.getElementById('iconpicker').value;
-      img11 = img.split("\\");
-      var imghd = img11.splice(0, 2);
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        here = e.target.result;
-        document.getElementById(gid).setAttribute("src", here);
-      };
-      reader.readAsDataURL(gr.files[0]);
-    }
+    var whatpix;var img = document.getElementById('iconpicker').value;
+    var link = FFGDFL(img);
+    var here = 'https://drive.google.com/uc?export=view&id=' + link;
+    document.getElementById(gid).setAttribute("src", here);
   }
 }
 function upg(nameo, num, holders, place, holdeer) {
@@ -613,4 +584,12 @@ function openeshare(arg) {
   else if (arg == "dl") {
     //
   }
+}
+function FFGDFL(link) {
+  const regex = /https:\/\/drive\.google\.com\/file\/d\/(?<fileId>[\w-]+)\//;
+  const match = regex.exec(link);
+  if (match) {
+    return match.groups.fileId;
+  }
+  return null;
 }
