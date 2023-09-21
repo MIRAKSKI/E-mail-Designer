@@ -71,6 +71,17 @@ function selecttoedit(id, place) {
       document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
       document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
       document.getElementById('imagerhd').style.display = "block";
+      var t = document.getElementById(gid).getAttribute('class');console.log(t);
+      if (t == 'ftrelem') {
+        document.getElementById('culink').setAttribute("onclick", "textstyler('dlft')");
+        document.getElementById('culinks').setAttribute("onclick", "textstyler('upft')");
+        document.getElementById('culinkx').setAttribute("onclick", "textstyler('dnft')");
+      }
+      else if (t == 'hdrelem') {
+        document.getElementById('culink').setAttribute("onclick", "textstyler('dlhd')");
+        document.getElementById('culinks').setAttribute("onclick", "textstyler('uphd')");
+        document.getElementById('culinkx').setAttribute("onclick", "textstyler('dnhd')");
+      }
     }
     else {
       document.getElementById('imager').style.display = "block";document.getElementById('linker').style.display = "none";
@@ -372,9 +383,12 @@ function adders(arg) {
     numhdr +=1;
   }
   else if (arg == "FLG") {
+    numele=document.getElementsByClassName('anclass').length;
     numhdr=document.getElementsByClassName('ftrhdr').length;
+    numelem=document.getElementsByClassName('link').length;
+    numele = numelem + numele;
     var elemnts = CNT(ftcon, numhdr);
-    elemnts += CNT(flogo, numhdr);elemnts += end;
+    elemnts += CNT(flogo, numele);elemnts += end;
     document.getElementById('footerx').innerHTML += elemnts;
     numhdr +=1;
   }
@@ -388,6 +402,8 @@ function adders(arg) {
   else if (arg == "LK") {
     numele=document.getElementsByClassName('anclass').length;
     numhdr=document.getElementsByClassName('ftrhdr').length;
+    numelem=document.getElementsByClassName('link').length;
+    numele = numelem + numele;
     var elemnts = CNT(ftcon, numhdr);
     elemnts += CNT(link, numele);elemnts += end;
     document.getElementById('footerx').innerHTML += elemnts;
@@ -560,7 +576,7 @@ subtitle=["<p style=@@margin-left:20px;margin-right:20px;font-size:21px;font-wei
 icon=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id)@@ id=@@a_", "@@ class=@@anclass@@>                 <img style=@@margin: 10px;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/5.png@@ alt=@@aiesec in ouargla@@ width=@@70%;@@>               </a>"];
 header=["<p class=@@hdrelem@@ style=@@margin-left:20px;margin-right:20px;margin-bottom:20px;font-size:30px;text-align:center; font-Weight:bold;@@  onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>AIESEC in Ouargla Recruitment</p>"];
 logo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>"];
-flogo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@>"];
+flogo=["<img class=@@ftrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@>"];
 link=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@ class=@@link@@> Link Here </a>"];
 video=["<video src=@@#@@ autoplay controls poster=@@https://mirakski.github.io/E-mail-Designer/pics/3.jpg@@ poster=@@pics/3.jpg@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></video>"];
 ftcon=["<div  style=@@width: 100%;max-width:300px;margin:0 auto;display: grid;justify-content: center;@@ class=@@ftrhdr@@ id=@@diva_", "@@>"];
