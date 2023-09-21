@@ -42,12 +42,20 @@
                 <p style="margin-left:20px;margin-right:20px;" onclick="selecttoedit(this.id)" id="p_2">Hello Dear,I hope this email finds you well, I'm Abdelkarim Khelfaoui the OEVP MKT&PD of AIESEC In Ouargla.</p>
               </div>
               <div class="eholdr" style="width: 100%;min-width: 100%;text-align: center;" id="divp_3"><!--Complete Your Account-->
-                <button type="button" style="margin: 10px auto;padding: 12px 22px;border:none;width:50%;max-width:100%;background:rgb(0,120,220);" onclick="selecttoedit(this.id)" id="p_3"> <a id="btnp_3" href="#" target="iframe_a" style="color:white;font-Weight:bold;">link here</a> </button>
+                <table id="p_3" onclick="selecttoedit(this.id)" style="width:100%;">
+                  <tr>
+                    <td>
+                      <a id="ankp_3" href="#" target="iframe_a" style="text-decoration: none;">
+                        <button id="btnp_3" style="color:white;font-Weight:bold;margin: 10px auto;padding: 12px 22px;border:none;width:50%;max-width:100%;background:rgb(0,120,220);">Click Here</button>
+                      </a>
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
           <div style="width: 100%;display: grid;justify-content: center;" id="footerx">
-            <div  style="width: 100%;max-width:300px;margin:0 auto;display: flex;justify-content: center;" class="ftrhdr" id="diva_0" class="ftrclass">
+            <div  style="width: 100%;max-width:300px;margin:0 auto;display: flex;justify-content: center;" class="ftrhdr" id="diva_0">
               <a href="https://www.facebook.com/profile.php?id=100083340892603"style="margin: 20px;"target="iframe_a" title="Facebook Account" onclick="selecttoedit(this.id)" id="a_0" class="anclass">
                 <img style="margin: 10px;" src="https://mirakski.github.io/E-mail-Designer/pics/4.png" alt="aiesec in ouargla" width="70%;">
               </a>
@@ -213,20 +221,20 @@
             <div style="opacity:0;">|</div>
           </div>
           <div class="txttools">
-            <p style="text-align:center;">Button Editor</p>
+            <p style="text-align:center;" id="btnider">Button Editor</p>
           </div>
           <div class="txttools">
             <p style="text-align:center;" id="btnlnk">current Link</p>
           </div>
           <div class="txttools">
             <input type="text" id="linkbtn" value="" placeholder="Put Your Link Here">
-            <input type="button" value="Change the Link" onclick="textstyler('chbtn')">
+            <input type="button" value="Change the Link" onclick="textstyler('chvida')">
           </div>
-          <div class="txttools">
+          <div class="txttools" id="coloerseter">
             <input type="button" value="Change Button Color" onclick="textstyler('btncolor')">
             <input type="button" value="Change Text Color" onclick="textstyler('txtcolor')">
           </div>
-          <div class="txttools">
+          <div class="txttools" id="textseter">
             <p style="text-align:center;">Text Editor</p>
           </div>
           <center style="height: auto;min-height: 50%;"><textarea id="txtars"></textarea></center>

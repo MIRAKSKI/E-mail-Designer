@@ -79,8 +79,12 @@ function selecttoedit(id, place) {
       document.getElementById('imagerhd').style.display = "none";
     }
   }
-  else if (tagName.toString() == "BUTTON") {
-    document.getElementById('btnlnk').innerHTML = document.getElementById('btn' + gid).getAttribute("href");
+  else if (tagName.toString() == "TABLE") {
+    document.getElementById('coloerseter').style.display = "block";
+    document.getElementById('textseter').style.display = "block";
+    document.getElementById('txtars').style.display = "block";
+    document.getElementById('btnider').innerText = "Button Editor";
+    document.getElementById('btnlnk').innerHTML = document.getElementById('ank' + gid).getAttribute("href");
     document.getElementById('txtars').value = document.getElementById('btn' + gid).innerHTML;
     document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
     document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
@@ -89,15 +93,15 @@ function selecttoedit(id, place) {
     document.getElementById('iframe_a').setAttribute("src", "");gidd=gid;
   }
   else if (tagName.toString() == "VIDEO") {
-    document.getElementById('iconhld').style.display = "none";
-    document.getElementById('iconhlds').style.display = "none";
-    document.getElementById('txthld').style.display = "none";
-    document.getElementById('txtlnk').style.display = "none";
+    document.getElementById('coloerseter').style.display = "none";
+    document.getElementById('textseter').style.display = "none";
+    document.getElementById('txtars').style.display = "none";
+    document.getElementById('btnider').innerText = "Video Editor";
     document.getElementById('link_editor').innerText="Video Editor";
     document.getElementById('culnk').innerHTML = document.getElementById(gid).getAttribute("src");
-    document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "block";
+    document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
     document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
-    document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
+    document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "block";
     document.getElementById('imagerhd').style.display = "none";
     document.getElementById('iframe_a').setAttribute("src", "");
   }
@@ -108,7 +112,7 @@ txtar.onkeyup = () => {
 }
 const txtars = document.getElementById('txtars');
 txtars.onkeyup = () => {
-  document.getElementById('btn' + gidd).innerText = document.getElementById('txtars').value;
+  document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
 }
 const txtlnk = document.getElementById('txtlnk');
 txtlnk.onkeyup = () => {
@@ -204,8 +208,9 @@ function textstyler(arg) {
   }
   else if (arg == "upft") {
     var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
+    holdeer=document.getElementById(place).parentElement.getAttribute('id');
     var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('ftrhdr');
-    var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
+    var nameo = place.split("_")[0].toString();
     upg(nameo, num, holders, place, holdeer);
   }
   else if (arg == "dnft") {
@@ -224,10 +229,10 @@ function textstyler(arg) {
       }
     }
     else {
-      document.getElementById('div' + gid).remove();
-      holders = document.getElementsByClassName('ftrclass');
+      document.getElementById(gid).parentElement.remove();
+      holders = document.getElementsByClassName('ftrhdr');
       for (var i = 0; i < holders.length; i++) {
-        document.getElementsByClassName('ftrclass')[i].setAttribute("id", "diva_"+i);
+        document.getElementsByClassName('ftrhdr')[i].setAttribute("id", "diva_"+i);
       }
     }
   }
@@ -241,7 +246,13 @@ function textstyler(arg) {
   }
   else if (arg == "chbtn") {
     var link = document.getElementById('linkbtn').value;
-    document.getElementById('btn' + gid).setAttribute("href", link);
+    document.getElementById('ank' + gid).setAttribute("href", link);
+    document.getElementById('btnlnk').innerHTML = link;
+    document.getElementById('linkbtn').value = "";
+  }
+  else if (arg == "chvida") {
+    var link = document.getElementById('linkbtn').value;
+    document.getElementById(gid).setAttribute("src", link);
     document.getElementById('btnlnk').innerHTML = link;
     document.getElementById('linkbtn').value = "";
   }
@@ -254,12 +265,6 @@ function textstyler(arg) {
     //var links = "https://i3.ytimg.com/vi/" + yti[1] + "/maxresdefault.jpg";
     //document.getElementById(gid).setAttribute("poster", links);
   }
-  else if (true) {
-    //
-  }
-  else if (true) {
-    //
-  }
 }
 function setcoolers(color) {
   if (elemnt == "P") {
@@ -271,14 +276,14 @@ function setcoolers(color) {
   else if (elemnt == "DIV") {
     document.getElementById(gid).style.backgroundColor = color;
   }
-  else if (elemnt == "BUTTON") {
+  else if (elemnt == "TABLE") {
     if (btncol == 0) {
       //to text
       document.getElementById('btn' + gid).style.color = color;
     }
     else if (btncol == 1) {
       //to BG
-      document.getElementById(gid).style.backgroundColor = color;
+      document.getElementById('btn' + gid).style.backgroundColor = color;
     }
   }
   else if (elemnt == "cont") {
@@ -377,9 +382,10 @@ function adders(arg) {
     numhdr +=1;
   }
   else if (arg == "LK") {
-    numhdr=document.getElementsByClassName('anclass').length;
+    numele=document.getElementsByClassName('anclass').length;
+    numhdr=document.getElementsByClassName('ftrhdr').length;
     var elemnts = CNT(ftcon, numhdr);
-    elemnts += CNT(link, numhdr);elemnts += end;
+    elemnts += CNT(link, numele);elemnts += end;
     document.getElementById('footerx').innerHTML += elemnts;
     numhdr +=1;
   }
@@ -467,6 +473,7 @@ function picsx(arg, gr) {
   }
 }
 function upg(nameo, num, holders, place, holdeer) {
+  console.log(nameo+"_"+eval(num-1));
   document.getElementById(nameo+"_"+eval(num-1)).setAttribute("id", nameo+"inf");var newt = [];
   for (var i = 0; i < holders.length; i++) {
     if (i == (num-1)) {
@@ -571,7 +578,7 @@ function downgf(place, nameo, holders, num) {
 }
 
 img = ["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: center;@@ id=@@divp_", "@@><!--secound pics--><img src=@@https://mirakski.github.io/E-mail-Designer/pics/3.jpg@@ alt=@@act to impact@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></div>"];
-button = ["<button type=@@button@@ style=@@margin: 10px auto;padding: 12px 22px;border:none;width:50%;max-width:100%;background:rgb(0,120,220);@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@> <a id=@@btnp_", "@@ href=@@#@@ target=@@iframe_a@@ style=@@color:white;font-Weight:bold;@@>link here</a> </button>"];
+button = ["<table id=@@p_", "@@ onclick=@@selecttoedit(this.id)@@ style=@@width:100%;@@>                   <tr>                     <td>                       <a id=@@ankp_", "@@ href=@@#@@ target=@@iframe_a@@ style=@@text-decoration: none;@@>                         <button id=@@btnp_", "@@ style=@@color:white;font-Weight:bold;margin: 10px auto;padding: 12px 22px;border:none;width:50%;max-width:100%;background:rgb(0,120,220);@@>Click Here</button>                       </a>                     </td>                   </tr>                 </table>"];
 text = ["<p style=@@margin-left:20px;margin-right:20px;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Hello Dear,I hope this email finds you well, I$m Abdelkarim Khelfaoui the OEVP MKT&PD of AIESEC In Ouargla.</p>"];
 title= ["<p style=@@margin-left:20px;margin-right:20px;font-size:25px; font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>AIESEC IN OUARGLA</p>"];
 subtitle=["<p style=@@margin-left:20px;margin-right:20px;font-size:21px;font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Global Impact</p>"];
@@ -581,7 +588,7 @@ logo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right
 flogo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@>"];
 link=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@ class=@@link@@> Link Here </a>"];
 video=["<video src=@@#@@ autoplay controls poster=@@https://mirakski.github.io/E-mail-Designer/pics/3.jpg@@ poster=@@pics/3.jpg@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></video>"];
-ftcon=["<div  style=@@width: 100%;max-width:300px;margin:0 auto;display: grid;justify-content: center;@@ class=@@ftrhdr@@ id=@@diva_", "@@ class=@@ftrhdr@@>"];
+ftcon=["<div  style=@@width: 100%;max-width:300px;margin:0 auto;display: grid;justify-content: center;@@ class=@@ftrhdr@@ id=@@diva_", "@@>"];
 midcon=["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: center;@@ id=@@divp_", "@@>"];//need end
 hrcon=["<div style=@@width: 100%;max-width:600px;margin:0 auto;display: grid;justify-content: center;@@ id=@@divt_", "@@ class=@@hdrclass@@>"];//need end
 end=["</div>"];
