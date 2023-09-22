@@ -1,4 +1,4 @@
-var gid,elemnt,btncol = 0,gidd;
+var gid,elemnt,btncol = 0,gidd,numhdr;
 function selecttoedit(id, place) {
   var tagName = document.getElementById(id).tagName;gid=id;elemnt = tagName.toString();
   document.getElementById('movbtns1').style.display = "block";
@@ -415,6 +415,12 @@ function adders(arg) {
     document.getElementById('footerx').innerHTML += elemnts;
     numhdr +=1;
   }
+  else if (arg == "blank") {
+    numhdr=document.getElementsByClassName('eholdr').length;
+    var elemnts = CNT(midcon, numhdr);
+    elemnts += CNT(blank, numhdr);elemnts += end
+    document.getElementById('condev').innerHTML += elemnts;
+  }
 }
 function CNT(arg, count) {
   var elemnt= "";
@@ -578,6 +584,7 @@ img = ["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: ce
 button = ["<table id=@@p_", "@@ onclick=@@selecttoedit(this.id)@@ style=@@width:100%;@@>                   <tr>                     <td>                       <a id=@@ankp_", "@@ href=@@#@@ target=@@iframe_a@@ style=@@text-decoration: none;@@>                         <button id=@@btnp_", "@@ style=@@color:white;font-Weight:bold;margin: 10px auto;padding: 12px 22px;border:none;width:50%;max-width:100%;background:rgb(0,120,220);@@>Click Here</button>                       </a>                     </td>                   </tr>                 </table>"];
 text = ["<p style=@@margin-left:20px;margin-right:20px;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Hello Dear,I hope this email finds you well, I$m Abdelkarim Khelfaoui the OEVP MKT&PD of AIESEC In Ouargla.</p>"];
 title= ["<p style=@@margin-left:20px;margin-right:20px;font-size:25px; font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>AIESEC IN OUARGLA</p>"];
+blank= ["<p style=@@margin-left:20px;margin-right:20px; font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@><br /><br /></p>"];
 subtitle=["<p style=@@margin-left:20px;margin-right:20px;font-size:21px;font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Global Impact</p>"];
 icon=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id)@@ id=@@a_", "@@ class=@@anclass@@>                 <img style=@@margin: 10px;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/5.png@@ alt=@@aiesec in ouargla@@ width=@@70%;@@>               </a>"];
 header=["<p class=@@hdrelem@@ style=@@margin-left:20px;margin-right:20px;margin-bottom:20px;font-size:30px;text-align:center; font-Weight:bold;@@  onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>AIESEC in Ouargla Recruitment</p>"];
@@ -608,7 +615,20 @@ function openeshare(arg) {
     document.getElementById('E_copie').style.display = "none";alert("HTML Coode Copied");
   }
   else if (arg == "dl") {
-    //
+    adders("blank");
+    const divElement = document.querySelector('#E_mail_doc');
+    // Create a Range object and select the div element.
+    const range = document.createRange();
+    range.selectNode(divElement);
+    // Clear the current selection.
+    window.getSelection().removeAllRanges();
+    // Add the Range object to the selection.
+    window.getSelection().addRange(range);
+    // Execute the copy command.
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+    document.getElementById('divp_' + numhdr).remove();
+    alert("E-mail Design Copied");
   }
 }
 function FFGDFL(link) {
