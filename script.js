@@ -93,7 +93,7 @@ function selecttoedit(id, place) {
   else if (tagName.toString() == "TABLE") {
     document.getElementById('btnlinkch').removeAttribute("onclick");
     document.getElementById('btnlinkch').setAttribute("onclick","textstyler('chbtn')");
-    document.getElementById('coloerseter').style.display = "block";
+    document.getElementById('coloerseter').style.display = "flex";
     document.getElementById('textseter').style.display = "block";
     document.getElementById('txtars').style.display = "block";
     document.getElementById('btnider').innerText = "Button Editor";
@@ -154,6 +154,7 @@ function textstyler(arg) {
   }
   else if (arg=="c") {
     var vew = document.getElementById('setholder').style.display;
+    document.getElementsByClassName('editor')[0].style.overflow = "hidden";
     if (vew == "block") {
       document.getElementById('setholder').style.display = "none";
     }
@@ -253,10 +254,12 @@ function textstyler(arg) {
   }
   else if (arg == "btncolor") {
     document.getElementById('setholder').style.display = "block";
+    document.getElementsByClassName('editor')[0].style.overflow = "hidden";
     btncol = 1;
   }
   else if (arg == "txtcolor") {
     document.getElementById('setholder').style.display = "block";
+    document.getElementsByClassName('editor')[0].style.overflow = "hidden";
     btncol = 0;
   }
   else if (arg == "chbtn") {
@@ -308,6 +311,7 @@ function setcoolers(color) {
 function Close(arg) {
   if (arg == "color") {
     document.getElementById('setholder').style.display = "none";
+    document.getElementsByClassName('editor')[0].style.overflowY = "";
   }
   else if (arg == "hm") {
     document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
@@ -326,9 +330,11 @@ function adders(arg) {
   }
   else if (arg == "bgcol") {
     gid = "E_mail";elemnt = "cont";document.getElementById('setholder').style.display = "block";
+    document.getElementsByClassName('editor')[0].style.overflow = "hidden";
   }
   else if (arg == "laycol") {
     gid = "condev";elemnt = "cont";document.getElementById('setholder').style.display = "block";
+    document.getElementsByClassName('editor')[0].style.overflow = "hidden";
   }
   else if (arg == "LG") {
     numhdr=document.getElementsByClassName('hdrelem').length;

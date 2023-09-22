@@ -40,3 +40,8 @@ textarea {backdrop-filter:blur(30px);background: rgba(50,50,50,0.3);color: white
 .shareclass {position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);height: 20%;width: 40%;padding: 0.6875rem 0.625rem;background: rgba(50,50,50,0.2);backdrop-filter:blur(15px);border-radius: 0.9375rem;display: grid;align-items: center;}
 .copybtn {background: rgba(50,50,50,0.2);backdrop-filter:blur(5px);color: white;font-weight: bold;font-size: 1.25rem;transition: 0.2s;margin: 0.3125rem;padding: 0.3125rem;}
 .copybtn:hover {background: rgba(50,50,50,0.6);backdrop-filter:blur(15px);}
+::-webkit-scrollbar {width: 8px;}
+::-webkit-scrollbar-track {background: transparent;}
+::-webkit-scrollbar-thumb {background: #888;}
+::-webkit-scrollbar-thumb:hover {background: #555;}
+::-webkit-scrollbar-thumb {border-radius: 2px;}
