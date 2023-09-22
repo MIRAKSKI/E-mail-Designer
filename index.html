@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <title>AIESEC E-mail Designer</title>
     <link rel="stylesheet" href="master.css">
+    <link rel="stylesheet" href="second.css">
     <meta name="description" content="Free ,Easy, Fast Email Designer Provided for Personal and commercial use">
     <link rel="icon" href="pics/email.png">
     <meta property="og:image" content="pics/email.png">
     <meta property="og:title" content="E-MAIL Designer | E-mail Template">
     <meta property="og:description" content="Free ,Easy, Fast Email Designer Provided for Personal and commercial use">
+    <meta name="viewport" content="width=device-eidth, initial-scale=1.0">
   </head>
   <body>
     <div style="display:none;" id="E_shower">
@@ -147,9 +149,9 @@
             <div onclick="textstyler('b')" title="Bold" class="dvbtncls">B</div>
             <div style="opacity:0.5;">|</div>
             <div class="fnsz">
-              <div onclick="textstyler('-')" class="dvbtncls" style="font-Weight:bold;font-size:20px;" title="Font Size Down">-</div>
+              <div onclick="textstyler('-')" class="dvbtncls" style="font-Weight:bold;font-size:1.25rem;" title="Font Size Down">-</div>
               <input value="16" onkeyup="textstyler('sz')" type="number" id="fsz" title="Font Size">
-              <div onclick="textstyler('+')" class="dvbtncls" style="font-Weight:bold;font-size:20px;" title="Font Size Up">+</div>
+              <div onclick="textstyler('+')" class="dvbtncls" style="font-Weight:bold;font-size:1.25rem;" title="Font Size Up">+</div>
             </div>
             <div style="opacity:0.5;">|</div>
             <div onclick="textstyler('i')" title="Italic" class="dvbtncls" style="font-style: italic;cursor: pointer;">I</div>
@@ -157,7 +159,7 @@
             <div onclick="textstyler('c')" title="Color" class="dvbtncls">C</div>
             <div style="opacity:0;">|</div>
           </div>
-          <div class="txttools">
+          <div class="txttools" style="display:none;">
             <div style="opacity:0;">|</div>
             <div class="fnsz" title="Font Type">
               <input type="dropdown" value="" placeholder="chosse type" onkeyup="" id="">
