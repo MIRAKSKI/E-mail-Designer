@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>AIESEC E-mail Designer</title>
-    <link rel="stylesheet" href="master.css">
+    <link id="csslink" rel="stylesheet" href="master.css">
     <link rel="stylesheet" href="second.css">
     <meta name="description" content="Free ,Easy, Fast Email Designer Provided for Personal and commercial use">
     <link rel="icon" href="pics/email.png">
@@ -13,9 +13,9 @@
     <meta name="viewport" content="width=device-eidth, initial-scale=1.0">
   </head>
   <body>
+    <div id="ipara_a" style="display:none;" hidefocus="true" g_editable="true" role="textbox" aria-multiline="true" contenteditable="true" tabindex="1" style="min-height: 280px;" itacorner="6,7:1,1,0,0" spellcheck="false" aria-owns=":vk" aria-controls=":vk"></div>
     <div style="display:none;" id="E_shower">
       <textarea id="E_copie" style="display:none;"></textarea>
-      <p id="ipara_a" style="display:none;" contenteditable="true"></p>
       <div class="shareclass">
         <center>
           <p style="color:white;font-weight:bold;">Export E-mail</p>
@@ -301,7 +301,7 @@
           <iframe src="" name="iframe_a" width="" height="" id="iframe_a"></iframe>
         </div>
       </div>
-      <div id="setholder" class="setholder" style="display:none;">
+      <div id="setholder" class="setholder">
         <div>
           <!--
           <div class="cleararea" id="cleararea">
@@ -1183,5 +1183,6 @@
       </div>
     </div>
   </body>
+  <script src="jquery-3.6.0.js" charset="utf-8"></script>
   <script src="script.js" charset="utf-8"></script>
 </html>
