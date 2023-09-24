@@ -682,7 +682,7 @@ function openeshare(arg) {
     document.getElementById('E_copie').style.display = "none";alert("HTML Coode Copied");
   }
   else if (arg == "dl") {
-    adders("blank");
+    adders("blank");/*
     document.getElementById('E_mail_doc').setAttribute("hidefocus", true);
     document.getElementById('E_mail_doc').setAttribute("g_editable", true);
     document.getElementById('E_mail_doc').setAttribute("aria-multiline", "textbox");
@@ -692,6 +692,8 @@ function openeshare(arg) {
     document.getElementById('E_mail_doc').setAttribute("spellcheck", false);
     document.getElementById('E_mail_doc').setAttribute("aria-owns", ":vk");
     document.getElementById('E_mail_doc').setAttribute("aria-controls", ":vk");
+    */
+    document.getElementById('E_mail_doc').style.width = "100%";
     const divElement = document.querySelector('#E_mail_doc');
     // Create a Range object and select the div element.
     const range = document.createRange();
@@ -702,7 +704,8 @@ function openeshare(arg) {
     window.getSelection().addRange(range);
     // Execute the copy command.
     document.execCommand('copy');
-    window.getSelection().removeAllRanges();
+    window.getSelection().removeAllRanges();/*
+    document.getElementById('E_mail_doc').removeAttribute("style");
     document.getElementById('divp_' + numhdr).remove();
     document.getElementById('E_mail_doc').removeAttribute("hidefocus");
     document.getElementById('E_mail_doc').removeAttribute("g_editable");
@@ -712,7 +715,7 @@ function openeshare(arg) {
     document.getElementById('E_mail_doc').removeAttribute("itacorner");
     document.getElementById('E_mail_doc').removeAttribute("spellcheck");
     document.getElementById('E_mail_doc').removeAttribute("aria-owns");
-    document.getElementById('E_mail_doc').removeAttribute("aria-controls");
+    document.getElementById('E_mail_doc').removeAttribute("aria-controls");*/
     alert("E-mail Design Copied");
   }
 }
