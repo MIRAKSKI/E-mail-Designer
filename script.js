@@ -228,6 +228,7 @@ function textstyler(arg) {
     holders = document.getElementsByClassName('eholdr')
     for (var i = 0; i < holders.length; i++) {
       document.getElementsByClassName('eholdr')[i].setAttribute("id", "divp_"+i);
+      adders('ele');
     }
   }
   else if (arg == "chlk") {
@@ -255,6 +256,7 @@ function textstyler(arg) {
     holders = document.getElementsByClassName('hdrelem');
     for (var i = 0; i < holders.length; i++) {
       document.getElementsByClassName('hdrclass')[i].setAttribute("id", "t_"+i);
+      adders('ele');
     }
   }
   else if (arg == "upft") {
@@ -286,6 +288,7 @@ function textstyler(arg) {
         document.getElementsByClassName('ftrhdr')[i].setAttribute("id", "diva_"+i);
       }
     }
+    adders('ele');
   }
   else if (arg == "btncolor") {
     if (windowWidth < 600) {
@@ -651,7 +654,7 @@ title= ["<p style=@@margin-left:20px;margin-right:20px;font-size:25px; font-weig
 blank= ["<p style=@@margin-left:20px;margin-right:20px; font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@><br /><br /></p>"];
 subtitle=["<p style=@@margin-left:20px;margin-right:20px;font-size:21px;font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Global Impact</p>"];
 icon=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id)@@ id=@@a_", "@@ class=@@anclass@@>                 <img style=@@margin: 10px;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/5.png@@ alt=@@aiesec in ouargla@@ width=@@70%;@@>               </a>"];
-header=["<p class=@@hdrelem@@ style=@@margin-left:20px;margin-right:20px;margin-bottom:20px;font-size:30px;text-align:center; font-Weight:bold;@@  onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>AIESEC in Ouargla Recruitment</p>"];
+header=["<p class=@@hdrelem@@ style=@@margin-left:20px;margin-right:20px;margin-bottom:20px;font-size:25px;text-align:center; font-Weight:bold;@@  onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>AIESEC in Ouargla</p>"];
 logo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>"];
 flogo=["<img class=@@ftrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@>"];
 link=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@ class=@@link@@> Link Here </a>"];
