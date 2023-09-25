@@ -105,7 +105,7 @@ function selecttoedit(id, place) {
       document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
       document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
       document.getElementById('imagerhd').style.display = "block";
-      var t = document.getElementById(gid).getAttribute('class');console.log(t);
+      var t = document.getElementById(gid).getAttribute('class');
       if (t == 'ftrelem') {
         document.getElementById('culink').setAttribute("onclick", "textstyler('dlft')");
         document.getElementById('culinks').setAttribute("onclick", "textstyler('upft')");
@@ -212,19 +212,31 @@ function textstyler(arg) {
     document.getElementById(gid).style.fontSize = document.getElementById('fsz').value + "px";
   }
   else if (arg == "up") {
-    var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
-    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('eholdr');num = num.toString();
-    var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
-    upg(nameo, num, holders, place, holdeer);
+    divplace = document.getElementById(gid).parentElement.getAttribute('id');
+    var elnu = eval(divplace.toString().split("_")[1]);
+    if (elnu > 0) {
+      var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
+      var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('eholdr');num = num.toString();
+      var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
+      upg(nameo, num, holders, place, holdeer);
+    }
   }
   else if (arg == "dn") {
-    var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
-    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('eholdr');num = num.toString();
-    var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
-    downg(place, nameo, holders, num, holdeer);
+    divplace = document.getElementById(gid).parentElement.getAttribute('id');
+    var divcls = document.getElementById(divplace).getAttribute("class");
+    var divsbli = document.getElementsByClassName(divcls).length;
+    divsbli = divsbli - 1;
+    var elnu = eval(divplace.toString().split("_")[1]);
+    if (elnu < divsbli) {
+      var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
+      var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('eholdr');num = num.toString();
+      var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
+      downg(place, nameo, holders, num, holdeer);
+    }
   }
   else if (arg == "dl") {
-    document.getElementById('div' + gid).remove();
+    var father = document.getElementById(gid).parentElement.getAttribute('id');
+    document.getElementById(father).remove();
     holders = document.getElementsByClassName('eholdr')
     for (var i = 0; i < holders.length; i++) {
       document.getElementsByClassName('eholdr')[i].setAttribute("id", "divp_"+i);
@@ -238,39 +250,57 @@ function textstyler(arg) {
     document.getElementById('linkhld').value = "";
   }
   else if (arg == "uphd") {
-    var place = document.getElementById(gid).getAttribute('id');var holders = [];
-    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('hdrelem');num = num.toString();
-    var nameo = place.split("_")[0].toString();
-    upgf(nameo, num, holders, place);
+    var elnu = eval(gid.toString().split("_")[1]);
+    if (elnu > 0) {
+      var place = document.getElementById(gid).getAttribute('id');var holders = [];
+      var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('hdrelem');num = num.toString();
+      var nameo = place.split("_")[0].toString();
+      upgf(nameo, num, holders, place);
+    }
   }
   else if (arg == "dnhd") {
-    console.log(gid);
-    var place = document.getElementById(gid).getAttribute('id');var holders = [];
-    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('hdrelem');num = num.toString();
-    var nameo = place.split("_")[0].toString();
-    downgf(place, nameo, holders, num);
-    gid = document.getElementById(gid).getAttribute('id');
+    var divsbli = document.getElementsByClassName('hdrelem').length;
+    divsbli = divsbli - 1;
+    var elnu = eval(gid.toString().split("_")[1]);
+    if (elnu < divsbli) {
+      var place = document.getElementById(gid).getAttribute('id');var holders = [];
+      var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('hdrelem');num = num.toString();
+      var nameo = place.split("_")[0].toString();
+      downgf(place, nameo, holders, num);
+      gid = document.getElementById(gid).getAttribute('id');
+    }
   }
   else if (arg == "dlhd") {
     document.getElementById(gid).remove();
     holders = document.getElementsByClassName('hdrelem');
     for (var i = 0; i < holders.length; i++) {
       document.getElementsByClassName('hdrclass')[i].setAttribute("id", "t_"+i);
-      adders('ele');
     }
+    adders('ele');
   }
   else if (arg == "upft") {
-    var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
-    holdeer=document.getElementById(place).parentElement.getAttribute('id');
-    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('ftrhdr');
-    var nameo = place.split("_")[0].toString();
-    upg(nameo, num, holders, place, holdeer);
+    divplace = document.getElementById(gid).parentElement.getAttribute('id');
+    var elnu = eval(divplace.toString().split("_")[1]);
+    if (elnu > 0) {
+      var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
+      holdeer=document.getElementById(place).parentElement.getAttribute('id');
+      var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('ftrhdr');
+      var nameo = place.split("_")[0].toString();
+      upg(nameo, num, holders, place, holdeer);
+    }
   }
   else if (arg == "dnft") {
-    var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
-    var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('ftrhdr');num = num.toString();
-    var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
-    downg(place, nameo, holders, num, holdeer);
+    divplace = document.getElementById(gid).parentElement.getAttribute('id');
+    var divcls = document.getElementById(divplace).getAttribute("class");
+    var divsbli = document.getElementsByClassName(divcls).length;
+    divsbli = divsbli - 1;
+    var elnu = eval(divplace.toString().split("_")[1]);
+    if (elnu < divsbli) {
+      var place = document.getElementById(gid).parentElement.getAttribute('id');var holders = [];
+      var num = eval(place.split("_")[1].toString());holders = document.getElementsByClassName('ftrhdr');num = num.toString();
+      var nameo = place.split("_")[0].toString();holdeer=document.getElementById(place).parentElement.getAttribute('id');
+      downg(place, nameo, holders, num, holdeer);
+    }
   }
   else if (arg == "dlft") {
     var cla = document.getElementById(gid).getAttribute("class");
@@ -505,7 +535,6 @@ function picsx(arg, gr) {
   var wd = document.getElementById(gid).width;
   if (arg == "zi") {
     var wdx = wd + 10;
-    console.log(wdx);
     if (wdx >= 600) {
       document.getElementById(gid).style.width = 600 + "px";
     }
@@ -543,7 +572,6 @@ function picsx(arg, gr) {
   }
 }
 function upg(nameo, num, holders, place, holdeer) {
-  console.log(nameo+"_"+eval(num-1));
   document.getElementById(nameo+"_"+eval(num-1)).setAttribute("id", nameo+"inf");var newt = [];
   for (var i = 0; i < holders.length; i++) {
     if (i == (num-1)) {
@@ -570,7 +598,6 @@ function downg(place, nameo, holders, num) {
   for (var i = 0; i < holders.length; i++) {
     if (i == (num)) {
       newt[i] = holders[eval(eval(num)+1)];
-      console.log((nameo+"_"+ eval(eval(i)+1)).toString());
       document.getElementById((nameo+"_"+ eval(eval(i)+1)).toString()).setAttribute("id", (nameo +"_"+ i).toString());
     }
     else if (i == eval(eval(num)+1)) {
@@ -581,7 +608,6 @@ function downg(place, nameo, holders, num) {
       newt[i] = holders[i];
     }
   }
-  console.log(newt[0],newt[1],newt[2],newt[3]);
   for (var i = 0; i < holders.length; i++) {
     try {holders[i].remove();} catch (e) {} finally {}
   }
@@ -620,7 +646,6 @@ function downgf(place, nameo, holders, num) {
   for (var i = 0; i < holders.length; i++) {
     if (i == (num)) {
       newt[i] = holders[eval(eval(num)+1)];
-      console.log((nameo+"_"+ eval(eval(i)+1)));
       document.getElementById((nameo+"_"+ eval(eval(i)+1)).toString()).setAttribute("id", (nameo +"_"+ i).toString());
     }
     else if (i == eval(eval(num)+1)) {
@@ -685,7 +710,7 @@ function openeshare(arg) {
     document.getElementById('E_copie').style.display = "none";alert("HTML Coode Copied");
   }
   else if (arg == "dl") {
-    adders("blank");/*
+    adders("blank");
     document.getElementById('E_mail_doc').setAttribute("hidefocus", true);
     document.getElementById('E_mail_doc').setAttribute("g_editable", true);
     document.getElementById('E_mail_doc').setAttribute("aria-multiline", "textbox");
@@ -695,7 +720,6 @@ function openeshare(arg) {
     document.getElementById('E_mail_doc').setAttribute("spellcheck", false);
     document.getElementById('E_mail_doc').setAttribute("aria-owns", ":vk");
     document.getElementById('E_mail_doc').setAttribute("aria-controls", ":vk");
-    */
     document.getElementById('E_mail_doc').style.width = "100%";
     const divElement = document.querySelector('#E_mail_doc');
     // Create a Range object and select the div element.
@@ -707,7 +731,7 @@ function openeshare(arg) {
     window.getSelection().addRange(range);
     // Execute the copy command.
     document.execCommand('copy');
-    window.getSelection().removeAllRanges();/*
+    window.getSelection().removeAllRanges();
     document.getElementById('E_mail_doc').removeAttribute("style");
     document.getElementById('divp_' + numhdr).remove();
     document.getElementById('E_mail_doc').removeAttribute("hidefocus");
@@ -718,7 +742,7 @@ function openeshare(arg) {
     document.getElementById('E_mail_doc').removeAttribute("itacorner");
     document.getElementById('E_mail_doc').removeAttribute("spellcheck");
     document.getElementById('E_mail_doc').removeAttribute("aria-owns");
-    document.getElementById('E_mail_doc').removeAttribute("aria-controls");*/
+    document.getElementById('E_mail_doc').removeAttribute("aria-controls");
     alert("E-mail Design Copied");
   }
 }
