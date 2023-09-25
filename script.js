@@ -676,7 +676,7 @@ function downgf(place, nameo, holders, num) {
   gid = document.getElementById(nameo +"_"+(eval(num)+1)).getAttribute('id');
 }
 
-img = ["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: center;@@ id=@@divp_", "@@><!--secound pics--><img src=@@https://mirakski.github.io/E-mail-Designer/pics/3.jpg@@ alt=@@act to impact@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></div>"];
+img = ["<img src=@@https://mirakski.github.io/E-mail-Designer/pics/3.jpg@@ alt=@@act to impact@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>"];
 button = ["<table id=@@p_", "@@ onclick=@@selecttoedit(this.id)@@ style=@@width:100%;@@>                   <tr>                     <td>                       <a id=@@ankp_", "@@ href=@@#@@ target=@@iframe_a@@ style=@@text-decoration: none;@@>                         <button id=@@btnp_", "@@ style=@@color:white;font-Weight:bold;margin: 10px auto;padding: 12px 22px;border:none;width:50%;max-width:100%;background:rgb(0,120,220);@@>Click Here</button>                       </a>                     </td>                   </tr>                 </table>"];
 text = ["<p style=@@margin-left:20px;margin-right:20px;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Hello Dear,I hope this email finds you well, I$m Abdelkarim Khelfaoui the OEVP MKT&PD of AIESEC In Ouargla.</p>"];
 title= ["<p style=@@margin-left:20px;margin-right:20px;font-size:25px; font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>AIESEC IN OUARGLA</p>"];
