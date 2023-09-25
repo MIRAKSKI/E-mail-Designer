@@ -73,6 +73,7 @@ function selecttoedit(id, place) {
     if (cls.toString() == "anclass") {
       document.getElementById('iconhld').style.display = "grid";
       document.getElementById('iconhlds').style.display = "flex";
+      document.getElementById('iconhldsx').style.display = "flex";
       document.getElementById('txthld').style.display = "none";
       document.getElementById('txtlnk').style.display = "none";
       document.getElementById('link_editor').innerText="Icon Editor";
@@ -82,6 +83,7 @@ function selecttoedit(id, place) {
       document.getElementById('iconhlds').style.display = "none";
       document.getElementById('txthld').style.display = "grid";
       document.getElementById('txtlnk').style.display = "flex";
+      document.getElementById('iconhldsx').style.display = "none";
       document.getElementById('txtlnk').value = document.getElementById(id).innerHTML;
       document.getElementById('link_editor').innerText="Link Editor";
     }
@@ -147,7 +149,7 @@ function selecttoedit(id, place) {
     document.getElementById('txtars').style.display = "none";
     document.getElementById('btnider').innerText = "Video Editor";
     document.getElementById('link_editor').innerText="Video Editor";
-    document.getElementById('culnk').innerHTML = document.getElementById(gid).getAttribute("src");
+    document.getElementById('btnlnk').innerText = document.getElementById(gid).getAttribute("src");
     document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
     document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
     document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "block";
@@ -352,6 +354,8 @@ function textstyler(arg) {
   }
   else if (arg == "chvida") {
     var link = document.getElementById('linkbtn').value;
+    link = 'https://drive.google.com/uc?export=view&id=' + FFGDFL(link);
+    document.getElementById(gid).setAttribute("poster", link);
     document.getElementById(gid).setAttribute("src", link);
     document.getElementById('btnlnk').innerHTML = link;
     document.getElementById('linkbtn').value = "";
@@ -683,7 +687,7 @@ header=["<p class=@@hdrelem@@ style=@@margin-left:20px;margin-right:20px;margin-
 logo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>"];
 flogo=["<img class=@@ftrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@>"];
 link=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@ class=@@link@@> Link Here </a>"];
-video=["<video src=@@#@@ autoplay controls poster=@@https://mirakski.github.io/E-mail-Designer/pics/3.jpg@@ poster=@@pics/3.jpg@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></video>"];
+video=["<video src=@@#@@ autoplay=@@true@@ poster=@@pics/3.jpg@@ width=@@100%;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@></video>"];
 ftcon=["<div  style=@@width: 100%;max-width:300px;margin:0 auto;display: grid;justify-content: center;@@ class=@@ftrhdr@@ id=@@diva_", "@@>"];
 midcon=["<div class=@@eholdr@@ style=@@width: 100%;min-width: 100%;text-align: center;@@ id=@@divp_", "@@>"];//need end
 hrcon=["<div style=@@width: 100%;max-width:600px;margin:0 auto;display: grid;justify-content: center;@@ id=@@divt_", "@@ class=@@hdrclass@@>"];//need end
