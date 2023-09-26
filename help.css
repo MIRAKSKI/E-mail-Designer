@@ -127,7 +127,7 @@ body {overflow-x: hidden;}
 .chatintext {
   border: 0.5px solid gray;
   border-radius: 10px;
-  background: blue;word-wrap: break-word;
+  background: rgba(255,0,200,0.9);word-wrap: break-word;
   color: white;text-shadow: 0 0 5px rgba(100, 100, 100, 1);
   min-width: 10px;
   max-width: 195px;
@@ -139,7 +139,7 @@ body {overflow-x: hidden;}
 .replaytext {
   border: 0.5px solid gray;
   border-radius: 10px;
-  background: green;word-wrap: break-word;
+  background: rgba(0,200,255,0.9);word-wrap: break-word;
   color: white;text-shadow: 0 0 5px rgba(100, 100, 100, 1);
   min-width: 10px;
   max-width: 195px;

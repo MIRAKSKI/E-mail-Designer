@@ -561,18 +561,21 @@ function picsx(arg, gr) {
     var link = FFGDFL(img);
     var here = 'https://drive.google.com/uc?export=view&id=' + link;
     document.getElementById(gid).setAttribute("src", here);
+    document.getElementById('imgpicker').value = "";
   }
   else if (arg == "chpic") {
     var whatpix;var img = document.getElementById('thisicon').value;
     var link = FFGDFL(img);
     var here = 'https://drive.google.com/uc?export=view&id=' + link;
     document.getElementById(gid).childNodes[1].setAttribute("src", here);
+    document.getElementById('thisicon').value = "";
   }
   else if (arg == "chlogo") {
     var whatpix;var img = document.getElementById('iconpicker').value;
     var link = FFGDFL(img);
     var here = 'https://drive.google.com/uc?export=view&id=' + link;
     document.getElementById(gid).setAttribute("src", here);
+    document.getElementById('iconpicker').value = "";
   }
 }
 function upg(nameo, num, holders, place, holdeer) {
@@ -707,11 +710,13 @@ function openeshare(arg) {
   }
   else if (arg == "cp") {
     var mail = document.getElementById('E_mail_doc').innerHTML;
-    mail = mail.replaceAll("iframe_a", "_blank");
+    mail = mail.replaceAll("iframe_a", "_blank");mail = mail.replaceAll("view&amp;id=", "Alkarim##idlink");console.log(mail);
     mail = mail.replaceAll("onclick=", "");mail = mail.replaceAll("id=", "");
+    mail = mail.replaceAll("Alkarim##idlink", "view&amp;id=");console.log(mail);
     document.getElementById('E_copie').value=mail;document.getElementById('E_copie').style.display = "block";
     document.getElementById('E_copie').select();document.execCommand("copy");
-    document.getElementById('E_copie').style.display = "none";alert("HTML Coode Copied");
+    document.getElementById('E_copie').style.display = "none";
+    mksound("finished.mp3");alert("HTML Coode Copied");
   }
   else if (arg == "dl") {
     adders("blank");
@@ -747,7 +752,7 @@ function openeshare(arg) {
     document.getElementById('E_mail_doc').removeAttribute("spellcheck");
     document.getElementById('E_mail_doc').removeAttribute("aria-owns");
     document.getElementById('E_mail_doc').removeAttribute("aria-controls");
-    alert("E-mail Design Copied");
+    mksound("finished.mp3");alert("E-mail Design Copied");
   }
 }
 function FFGDFL(link) {
