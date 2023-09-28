@@ -239,6 +239,7 @@ setInterval(function () {
   var submit = window.localStorage.getItem("submit");
   if (working == 1 && submit == "NOTOKAY") {
     window.localStorage.setItem("submit", "READY");
+    submit = "READY";
     document.getElementById('subform').remove();
     document.getElementsByTagName('body')[0].innerHTML += CNT(subform, 0);
   }

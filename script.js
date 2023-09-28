@@ -22,8 +22,10 @@ function onWindowResize() {
 window.addEventListener('resize', onWindowResize);
 windowWidth = window.innerWidth;
 windowheight = window.innerheight;
+var isnotcomp = 0;
 if (isPhone) {
   // The device is a phone.
+  isnotcomp = 1
   if (windowheight > windowWidth) {
     document.getElementById('csslink').removeAttribute("href");
   }
@@ -161,14 +163,56 @@ const txtar = document.getElementById('txtar');
 txtar.onkeyup = () => {
   document.getElementById(gid).innerText = document.getElementById('txtar').value;
 }
+var refreshIntervalIdx;
+document.getElementById('txtar').addEventListener("focus", function() {
+  var lav = document.getElementById('txtar').value;
+  refreshIntervalIdx = setInterval(function () {
+    var val = document.getElementById('txtar').value;
+    if (val != lav && isnotcomp == 1) {
+      document.getElementById(gid).innerText = document.getElementById('txtar').value;
+      lav = val;
+    }
+  }, 100);
+})
+document.getElementById('txtar').addEventListener("blur", function() {
+  clearInterval(refreshIntervalIdx);
+})
 const txtars = document.getElementById('txtars');
 txtars.onkeyup = () => {
   document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
 }
+var refreshIntervalIds;
+document.getElementById('txtars').addEventListener("focus", function() {
+  var lav = document.getElementById('txtars').value;
+  refreshIntervalIds = setInterval(function () {
+    var val = document.getElementById('txtars').value;
+    if (val != lav && isnotcomp == 1) {
+      document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
+      lav = val;
+    }
+  }, 100);
+})
+document.getElementById('txtars').addEventListener("blur", function() {
+  clearInterval(refreshIntervalIds);
+})
 const txtlnk = document.getElementById('txtlnk');
 txtlnk.onkeyup = () => {
   document.getElementById(gid).innerHTML = document.getElementById('txtlnk').value;
 }
+var refreshIntervalId;
+document.getElementById('txtlnk').addEventListener("focus", function() {
+  var lav = document.getElementById('txtlnk').value;
+  refreshIntervalId = setInterval(function () {
+    var val = document.getElementById('txtlnk').value;
+    if (val != lav && isnotcomp == 1) {
+      document.getElementById(gid).innerHTML = document.getElementById('txtlnk').value;
+      lav = val;
+    }
+  }, 100);
+})
+document.getElementById('txtlnk').addEventListener("blur", function() {
+  clearInterval(refreshIntervalId);
+})
 function textstyler(arg) {
   if (arg=="b") {
     var sty = document.getElementById(gid).style.fontWeight;

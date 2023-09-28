@@ -34,8 +34,8 @@
         if (working == 1 && submit == "OKAY") {
           var messg = window.localStorage.getItem("messg");
           document.getElementById('txtara').value = messg;
-          document.getElementById('subbtn').click()
           submit = "NOTOKAY";window.localStorage.setItem("submit", "NOTOKAY");
+          document.getElementById('subbtn').click()
         }
       }, 200);
     </script>

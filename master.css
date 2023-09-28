@@ -1,8 +1,8 @@
-html {font-size: 16px;}
+html {font-size: 16px;overflow: hidden;}
 .home {margin: 0;display: flex;width: 100%;height: 100%;justify-content: space-around;}
-.hholder {margin: 0;padding: 0;width: 49%;height: 100%;}
-.hholders {margin: 0;padding: 0;width: 49%;height: 100%;}
-.editor {margin: 0;padding: 0;width: 49%;height: 100%;display: block;position: fixed;top: 0;right: 0;z-index: 5;backdrop-filter:blur(2px);background: rgba(50,50,50,0.2);color: white;overflow: hidden;}
+.hholder {margin: 0;padding: 0;width: 50%;height: 100%;overflow-y:scroll;display: block;position: fixed;top: 0;left: 0;z-index: 5;}
+.hholders {margin: 0;padding: 0;width: 50%;height: 100%;}
+.editor {margin: 0;padding: 0;width: 49%;height: 100%;display: block;position: fixed;top: 0;right: 0;z-index: 5;backdrop-filter:blur(2px);background: rgba(50,50,50,0.2);color: white;overflow-x: hidden;overflow-y: scroll;}
 .editor input[type=button] {cursor: pointer;}
 .editors {margin: 0;padding: 0;width: 49%;height: 100%;display: block;position: fixed;top: 0;right: 0;background-image:url("pics/px.jpg");background-clip: border-box;background-size: cover;background-position: center;background-repeat: no-repeat;}
 .homer {width: 100%;height: 100%;display: grid; justify-content: center;}
