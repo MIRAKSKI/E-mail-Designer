@@ -35,9 +35,9 @@ if (isPhone) {
 }
 else {
   // The device is not a phone.
-  document.getElementById('showmetxt').style.display = "none";
-  document.getElementById('showmelnk').style.display = "none";
-  document.getElementById('showmebtn').style.display = "none";
+  document.getElementById('showmetxt').style.display = "block";
+  document.getElementById('showmelnk').style.display = "block";
+  document.getElementById('showmebtn').style.display = "block";
   document.getElementById('csslink').setAttribute("href", "master.css");
 }
 var gid,elemnt,btncol = 0,gidd,numhdr;
@@ -169,7 +169,7 @@ function selecttoedit(id, place) {
 const txtar = document.getElementById('txtar');
 txtar.onkeyup = () => {
   document.getElementById(gid).innerText = document.getElementById('txtar').value;
-}
+}/*
 var refreshIntervalIdx;
 document.getElementById('txtar').addEventListener("focus", function() {
   var lav = document.getElementById('txtar').value;
@@ -183,12 +183,12 @@ document.getElementById('txtar').addEventListener("focus", function() {
 })
 document.getElementById('txtar').addEventListener("blur", function() {
   clearInterval(refreshIntervalIdx);
-})
+})*/
 //botton changer
 const txtars = document.getElementById('txtars');
 txtars.onkeyup = () => {
   document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
-}
+}/*
 var refreshIntervalIds;
 document.getElementById('txtars').addEventListener("focus", function() {
   var lav = document.getElementById('txtars').value;
@@ -202,12 +202,12 @@ document.getElementById('txtars').addEventListener("focus", function() {
 })
 document.getElementById('txtars').addEventListener("blur", function() {
   clearInterval(refreshIntervalIds);
-})
+})*/
 //link changer
 const txtlnk = document.getElementById('txtlnk');
 txtlnk.onkeyup = () => {
-  document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
-}
+  document.getElementById(gid).innerHTML = document.getElementById('txtlnk').value;
+}/*
 var refreshIntervalId;
 document.getElementById('txtlnk').addEventListener("focus", function() {
   var lav = document.getElementById('txtlnk').value;
@@ -222,6 +222,7 @@ document.getElementById('txtlnk').addEventListener("focus", function() {
 document.getElementById('txtlnk').addEventListener("blur", function() {
   clearInterval(refreshIntervalId);
 })
+*/
 function textstyler(arg) {
   if (arg=="b") {
     var sty = document.getElementById(gid).style.fontWeight;
@@ -818,12 +819,12 @@ function FFGDFL(link) {
 }
 function change_text(arg) {
   if (arg == 1) {
-    document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
+    document.getElementById(gid).innerText = document.getElementById('txtar').value;
   }
   else if (arg == 2) {
     document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
   }
   else if (arg == 3) {
-    document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
+    document.getElementById(gid).innerHTML = document.getElementById('txtlnk').value;
   }
 }

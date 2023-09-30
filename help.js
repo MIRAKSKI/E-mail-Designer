@@ -1,4 +1,4 @@
-var nwchat = ["<div id=@@oper@@ class=@@oper@@>     <input class=@@openbt@@ id=@@openbt@@ type=@@button@@title=@@Chat/talk with Syrra@@ value=@@open@@ onclick=@@op()@@ >    <input type=@@text@@ id=@@montch@@ value=@@1@@ style=@@display: none;@@ disabled>   </div>   <div id=@@chatbox@@ class=@@chatbox@@ style=@@display: none;@@>     <div class=@@headline@@ id=@@headline@@>       <input id=@@closeX@@ type=@@button@@ name=@@close@@ value=@@X@@ onclick=@@op()@@>       <div class=@@spdr@@>         <p id=@@spas@@ onclick=@@spidratertoty($toggle$)@@>SyrraAssist</p>       </div>     </div>     <div class=@@chat@@>       <div class=@@holder@@ id=@@chatcontent@@>        </div>     </div>     <div class=@@list@@ style=@@display:none;@@></div>     <div class=@@bottomline@@ id=@@bottomline@@>       <input class=@@chattext@@ type=@@text@@ id=@@textvalue@@ placeholder=@@what do you think?@@>       <input class=@@sendtext@@ id=@@sendtext@@ type=@@button@@ value=@@send@@ onclick=@@aa();SmartAI();@@>     </div>   </div>"];
+var nwchat = ["<div id=@@oper@@ class=@@oper@@>     <input class=@@openbt@@ id=@@openbt@@ type=@@button@@title=@@Chat/talk with Syrra@@ value=@@open@@ onclick=@@op()@@ >    <input type=@@text@@ id=@@montch@@ value=@@1@@ style=@@display: none;@@ disabled>   </div>   <div id=@@chatbox@@ class=@@chatbox@@ style=@@display: none;@@>     <div class=@@headline@@ id=@@headline@@>       <input id=@@closeX@@ type=@@button@@ name=@@close@@ value=@@X@@ onclick=@@op()@@>       <div class=@@spdr@@>         <p id=@@spas@@>SyrraAssist</p>       </div>     </div>     <div class=@@chat@@>       <div class=@@holder@@ id=@@chatcontent@@>        </div>     </div>     <div class=@@list@@ style=@@display:none;@@></div>     <div class=@@bottomline@@ id=@@bottomline@@>       <input class=@@chattext@@ type=@@text@@ id=@@textvalue@@ placeholder=@@what do you think?@@>       <input class=@@sendtext@@ id=@@sendtext@@ type=@@button@@ value=@@send@@ onclick=@@aa();SmartAI();@@>     </div>   </div>"];
 var viwervid = ["<div class=@@syrradiv@@ style=@@display:none;@@ id=@@syrradiv@@>       <input type=@@button@@ value=@@X@@ onclick=@@closesyrraex()@@>       <video src=@@#@@ id=@@syrravid@@ autoplay=@@true@@ controls=@@true@@></video>  </div>"];hi=1;
 var subform = ["<iframe src=@@Form.html@@ width=@@100%@@ height=@@100%@@ id=@@subform@@ style=@@position:absolute;display:none;@@></iframe>"];
 var working;
@@ -15,16 +15,19 @@ if (himsg != ""&&himsg!=null) {
   hi = himsg;
 }
 var newformtext = "";
-const browserName = navigator.appName;
-const operatingSystem = navigator.platform;
-newformtext += "browserName :" + browserName + "<br />OS :" +  operatingSystem + "<br />";
-const screenWidth = screen.width;
-const screenHeight = screen.height;
-newformtext += "Swidth :" + screenWidth + "<br /> Sheight :" +  + screenHeight + "<br />";
-const userLanguage = navigator.language;
-newformtext += "UI Language :" + userLanguage + "<br />";
-const cookies = document.cookie;
-newformtext += "cookies :" + cookies + "<br />";
+try {
+  const browserName = navigator.appName;
+  const operatingSystem = navigator.platform;
+  newformtext += "browserName :" + browserName + "<br />OS :" +  operatingSystem + "<br />";
+  const screenWidth = screen.width;
+  const screenHeight = screen.height;
+  newformtext += "Swidth :" + screenWidth + "<br /> Sheight :" +  + screenHeight + "<br />";
+  const userLanguage = navigator.language;
+  newformtext += "UI Language :" + userLanguage + "<br />";
+  const cookies = document.cookie;
+  newformtext += "cookies :" + cookies + "<br />";
+}
+catch (e) {} finally {}
 var montch = 0;
 function op(bb) {
   var check = document.getElementById('chatbox');
@@ -40,28 +43,6 @@ function op(bb) {
         document.getElementById('montch').value = montch ;
         document.getElementById('montch').style.display = "none";
       }
-}
-function spidratertoty(spidraX) {
-  var home = document.querySelector(".hoster");
-  var spidra = document.getElementById('body');
-  if (spidraX=="toggle") {
-    if (home.style.display=="block") {
-      home.style.display = "none";
-      spidra.style.display = "block";
-    }
-    else if (spidra.style.display=="block") {
-      home.style.display = "block";
-      spidra.style.display = "none";
-    }
-  }
-  else if (spidraX=="home") {
-    home.style.display = "block";
-    spidra.style.display = "none";
-  }
-  else if (spidraX=="spidra") {
-    home.style.display = "none";
-    spidra.style.display = "block";
-  }
 }
 function aa() {
   const textchat = document.getElementById('textvalue').value;
@@ -141,31 +122,33 @@ function savetxtchat() {
   window.localStorage.setItem("textchatbox", textchatbox);
 }
 function syrrahelp(arg, url) {
-  const newelem = document.createElement("div")
-  const vid = document.createElement("video");
-  const para = document.createElement("p");
-  const node = document.createTextNode(arg);
-  vid.setAttribute("class", "videohelp");
-  url = 'https://drive.google.com/uc?export=view&id=' + FFGDFL(url);
-  vid.setAttribute("src", url);
-  vid.setAttribute("onclick", "openvideo(this.src)");
-  para.appendChild(node);
-  para.classList.add("replaytext");
-  para.setAttribute('name', 'replaytext')
-  newelem.classList.add("chatout");
-  newelem.appendChild(vid);
-  newelem.appendChild(para);
-  const element = document.getElementById("chatcontent");
-  element.appendChild(newelem);
-  element.scrollTop = element.scrollHeight;
-  var check = document.getElementById('chatbox');
-  if (check.style.display == "none") {
-    monterX();mksound('peep.mp3');
-  }
-  else {
-    mksound('phew.mp3');
-  }
-  savetxtchat()
+    const newelem = document.createElement("div")
+    const vid = document.createElement("video");
+    const para = document.createElement("p");
+    const node = document.createTextNode(arg);
+    vid.setAttribute("class", "videohelp");
+    url = 'https@##drive.google.com#uc?export=view&id=' + FFGDFL(url);
+    arg = arg.replaceAll("#", "/");
+    arg = arg.replaceAll("@", ":");
+    vid.setAttribute("src", url);
+    vid.setAttribute("onclick", "openvideo(this.src)");
+    para.appendChild(node);
+    para.classList.add("replaytext");
+    para.setAttribute('name', 'replaytext')
+    newelem.classList.add("chatout");
+    newelem.appendChild(vid);
+    newelem.appendChild(para);
+    const element = document.getElementById("chatcontent");
+    element.appendChild(newelem);
+    element.scrollTop = element.scrollHeight;
+    var check = document.getElementById('chatbox');
+    if (check.style.display == "none") {
+      monterX();mksound('peep.mp3');
+    }
+    else {
+      mksound('phew.mp3');
+    }
+    savetxtchat()
 }
 function openvideo(arg) {
   $("#syrradiv").fadeToggle();
@@ -182,23 +165,36 @@ function tips() {
   if (hi == 1) {
     syrratalk("Hi there, i'm Syrra your E-mail Designer assistant.");
     setTimeout(function() {
-      syrrahelp("The video above explains how to use the E-mail Designer.", "https://drive.google.com/file/d/1I8ChJfn0DnNJjeSH8_DHf8OkqO6_Qv9q/view?usp=sharing");
+      var arg = "https@##drive.google.com#file#d#1I8ChJfn0DnNJjeSH8_DHf8OkqO6_Qv9q#view?usp=sharing";
+      arg = arg.replaceAll("#", "/");
+      arg = arg.replaceAll("@", ":");
+      syrrahelp("The video above explains how to use the E-mail Designer.", arg);
     }, 3000);
     setTimeout(function() {
-      syrrahelp("The video above shows the different ways to export an Email.", "https://drive.google.com/file/d/1rBpytu_-v4FbP2PdAXfolFWoPd4SiXI1/view?usp=drive_link");
+      var arg = "https@##drive.google.com#file#d#1rBpytu_-v4FbP2PdAXfolFWoPd4SiXI1#view?usp=drive_link";
+      arg = arg.replaceAll("#", "/");
+      arg = arg.replaceAll("@", ":");
+      syrrahelp("The video above shows the different ways to export an Email.", arg);
     }, 5000);
     setTimeout(function() {
-      syrrahelp("The video above shows how to put the Designed E-mail in your E-mail service.", "https://drive.google.com/file/d/1I7Y9jI6DwKaTCGjaJdCVPJ92_NO19rON/view?usp=drive_link");
+      var arg = "https@##drive.google.com#file#d#1I7Y9jI6DwKaTCGjaJdCVPJ92_NO19rON#view?usp=drive_link";
+      arg = arg.replaceAll("#", "/");
+      arg = arg.replaceAll("@", ":");
+      syrrahelp("The video above shows how to put the Designed E-mail in your E-mail service.", arg);
     }, 7000);
     setTimeout(function() {
-      syrratalkhigh("Note#doublepoint# All the images and Videos you're willing to add in the email should be in google drive and their share settings must be 'Any one with the link'.");
+      var arg = "Note#doublepoint# All the images and Videos you're willing to add in the email should be in google drive and their share settings must be 'Any one with the link'.";
+      syrratalkhigh(arg);
     }, 9000);
     setTimeout(function() {
       syrratalk("I hope this helped, Have a nice day.");
       syrratalk("Happy Designing ;).");
     }, 11000);
     setTimeout(function() {
-      syrrahelp("A pro tip use E-mail temlplate to save your desgined Email, you can find how in the video above.", "https://drive.google.com/file/d/1lEAnP3QOgq1q_0dTyo6BWK0HQ5KUejYF/view?usp=drive_link");
+      var arg = "https@##drive.google.com#file#d#1lEAnP3QOgq1q_0dTyo6BWK0HQ5KUejYF#view?usp=drive_link";
+      arg = arg.replaceAll("#", "/");
+      arg = arg.replaceAll("@", ":");
+      syrrahelp("A pro tip use E-mail temlplate to save your desgined Email, you can find how in the video above.", arg);
     }, 22000);
     hi = 2;
     window.localStorage.setItem("himsg", hi);
