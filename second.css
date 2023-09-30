@@ -4,20 +4,20 @@
   .home {margin: 0;display: grid;width: 100%;height: 30%;justify-content: center;overflow: hidden;}
   .hholder {position: absolute;display: block;margin: 0;padding: 0;width: 100%;height: 50%;overflow-y: scroll;}
   .hholders {display: block;margin: 0;padding: 0;width: 100%;height: 50%;}
-  .editor {margin: 0;padding: 0;width: 100%;height: 50%;display: block;position: fixed;top: 50%;right: 0;z-index: 5;backdrop-filter:blur(2px);background: rgba(50,50,50,0.2);color: white;overflow-y: scroll;}
+  .editor {margin: 0;padding: 0;width: 100%;height: 50%;display: block;position: fixed;top: 50%;right: 0;z-index: 5;backdrop-filter:blur(2px);background: rgba(50,50,50,0.2);color: white;overflow-y: scroll;overflow-x: hidden;}
   .editors {margin: 0;padding: 0;width: 100%;height: 50%;display: block;position: fixed;top: 50%;right: 0;background-image:url("pics/px.jpg");background-clip: border-box;background-size: cover;background-repeat: no-repeat;background-position: center;}
   .shareclass {position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);min-height: 20%;width: 60%;padding: 0.6875rem 0.625rem;background: rgba(50,50,50,0.2);backdrop-filter:blur(15px);border-radius: 0.9375rem;display: grid;align-items: center;}
   .setholder {position: absolute;top: 50%;right: 0px;z-index: 99;height: 0;width: 0;justify-content: center;padding-top: 10%;background-color: rgba(25,25,25,0.45);backdrop-filter:blur(15px);margin: 0;overflow: hidden;}
   .PiCol,.ImgCol,#colormap {display: none}
   textarea {backdrop-filter:blur(30px);background: rgba(50,50,50,0.3);color: white;width: 97%;height: auto;min-height: 10rem;overflow-y: scroll;resize: none;}
-  .homer {width: 100%;height: 100%;display: grid; justify-content: center;}
-  .adder {width: 100%;height: 100%;display: none; justify-content: center;}
-  .writer {display: none;width: 100%;height: 100%;}
+  .homer {width: 100%;height: 100%;display: grid; justify-content: center;overflow-y: scroll;overflow-x: hidden;}
+  .adder {width: 100%;height: 100%;display: none; justify-content: center;overflow-y: scroll;overflow-x: hidden;}
+  .writer {display: none;width: 100%;height: 100%;overflow-y: scroll;overflow-x: hidden;}
   .txttools {width: 100%;height: auto;display: flex; justify-content: space-around;padding: 0.3125rem;}
-  .linker {display: none;width: 100%;height: 100%;}
-  .imager {display: none;width: 100%;height: 100%;}
-  .imagerhd {display: none;width: 100%;height: 100%;}
-  .buttoner {display: none;width: 100%;height: 100%;}
+  .linker {display: none;width: 100%;height: 100%;overflow-y: scroll;overflow-x: hidden;}
+  .imager {display: none;width: 100%;height: 100%;overflow-y: scroll;overflow-x: hidden;}
+  .imagerhd {display: none;width: 100%;height: 100%;overflow-y: scroll;overflow-x: hidden;}
+  .buttoner {display: none;width: 100%;height: 100%;overflow-y: scroll;overflow-x: hidden;}
   .fnsz {display:flex;justify-content:space-around;}
   .fnsz input {width: 1.875rem;margin-left: 0.625rem;margin-right: 0.625rem;text-align: center;margin-top: 0;margin-bottom: 0;}
   .eheader {display: flex;justify-content: space-around;padding: 0.3125rem;}
