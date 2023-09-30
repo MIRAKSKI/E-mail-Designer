@@ -26,12 +26,18 @@ var isnotcomp = 0;
 if (isPhone) {
   // The device is a phone.
   isnotcomp = 1
+  document.getElementById('showmetxt').style.display = "block";
+  document.getElementById('showmelnk').style.display = "block";
+  document.getElementById('showmebtn').style.display = "block";
   if (windowheight > windowWidth) {
     document.getElementById('csslink').removeAttribute("href");
   }
 }
 else {
   // The device is not a phone.
+  document.getElementById('showmetxt').style.display = "none";
+  document.getElementById('showmelnk').style.display = "none";
+  document.getElementById('showmebtn').style.display = "none";
   document.getElementById('csslink').setAttribute("href", "master.css");
 }
 var gid,elemnt,btncol = 0,gidd,numhdr;
@@ -159,6 +165,7 @@ function selecttoedit(id, place) {
     document.getElementById('iframe_a').setAttribute("src", "");
   }
 }
+//text changer
 const txtar = document.getElementById('txtar');
 txtar.onkeyup = () => {
   document.getElementById(gid).innerText = document.getElementById('txtar').value;
@@ -177,6 +184,7 @@ document.getElementById('txtar').addEventListener("focus", function() {
 document.getElementById('txtar').addEventListener("blur", function() {
   clearInterval(refreshIntervalIdx);
 })
+//botton changer
 const txtars = document.getElementById('txtars');
 txtars.onkeyup = () => {
   document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
@@ -195,9 +203,10 @@ document.getElementById('txtars').addEventListener("focus", function() {
 document.getElementById('txtars').addEventListener("blur", function() {
   clearInterval(refreshIntervalIds);
 })
+//link changer
 const txtlnk = document.getElementById('txtlnk');
 txtlnk.onkeyup = () => {
-  document.getElementById(gid).innerHTML = document.getElementById('txtlnk').value;
+  document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
 }
 var refreshIntervalId;
 document.getElementById('txtlnk').addEventListener("focus", function() {
@@ -806,4 +815,15 @@ function FFGDFL(link) {
     return match.groups.fileId;
   }
   return null;
+}
+function change_text(arg) {
+  if (arg == 1) {
+    document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
+  }
+  else if (arg == 2) {
+    document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
+  }
+  else if (arg == 3) {
+    document.getElementById('btn' + gidd).innerHTML = document.getElementById('txtars').value;
+  }
 }
