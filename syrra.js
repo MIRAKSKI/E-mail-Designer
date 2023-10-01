@@ -1,6 +1,3 @@
-var nwchat = ["<div id=@@oper@@ class=@@oper@@><input class=@@openbt@@ id=@@openbt@@ type=@@button@@title=@@Chat/talk with Syrra@@ value=@@open@@ onclick=@@op()@@ ><input type=@@text@@ id=@@montch@@ value=@@1@@ style=@@display: none;@@ disabled></div><div id=@@chatbox@@ class=@@chatbox@@ style=@@display: none;@@><div class=@@headline@@ id=@@headline@@><input id=@@closeX@@ type=@@button@@ name=@@close@@ value=@@X@@ onclick=@@op()@@><div class=@@spdr@@><p id=@@spas@@>SyrraAssist</p></div></div><div class=@@chat@@><div class=@@holder@@ id=@@chatcontent@@></div></div><div class=@@list@@ style=@@display:none;@@></div><div class=@@bottomline@@ id=@@bottomline@@><input class=@@chattext@@ type=@@text@@ id=@@textvalue@@ placeholder=@@what do you think?@@><input class=@@sendtext@@ id=@@sendtext@@ type=@@button@@ value=@@send@@ onclick=@@aa();SyrraAI();@@></div></div>"];
-var viwervid = ["<div class=@@syrradiv@@ style=@@display:none;@@ id=@@syrradiv@@>       <input type=@@button@@ value=@@X@@ onclick=@@closesyrraex()@@>       <video src=@@#@@ id=@@syrravid@@ autoplay=@@true@@ controls=@@true@@></video>  </div>"];hi=1;
-var subform = ["<iframe src=@@Form.html@@ width=@@100%@@ height=@@100%@@ id=@@subform@@ style=@@position:absolute;display:none;@@></iframe>"];
 var working;
 if (typeof(Storage) !== "undefined") {
   working = 1
@@ -67,7 +64,6 @@ function aa() {
   }
 }
 function SyrraAI() {}
-
 function syrratalk(arg) {
   const newelem = document.createElement("div")
   const para = document.createElement("p");
@@ -211,21 +207,14 @@ function monterX() {
     montch = montch;
   }
 }
-setTimeout(function() {
-  document.getElementsByTagName('body')[0].innerHTML += CNT(viwervid, 0);
-  document.getElementsByTagName('body')[0].innerHTML += CNT(nwchat, 0);
-  document.getElementsByTagName('body')[0].innerHTML += CNT(subform, 0);
-  if (textchatbox != ""&&textchatbox!=null) {
-    document.getElementById('chatcontent').innerHTML = textchatbox;
-  }
-  var send45 = document.getElementById('textvalue');
-  send45.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      aa();
-      SyrraAI();
-    }
-  });
-}, 1000);
+function mksound(arg) {
+  const audio = new Audio(arg);
+  audio.play();
+}
+var nwchat = [""];
+var viwervid = [""];
+var subform = [""];
+
 function mksound(arg) {
   const audio = new Audio(arg);
   audio.play();

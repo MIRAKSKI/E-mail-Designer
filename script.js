@@ -40,6 +40,27 @@ else {
   document.getElementById('showmebtn').style.display = "block";
   document.getElementById('csslink').setAttribute("href", "master.css");
 }
+///this is the new add code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//this is the main code
 var gid,elemnt,btncol = 0,gidd,numhdr;
 function selecttoedit(id, place) {
   var tagName = document.getElementById(id).tagName;gid=id;elemnt = tagName.toString();
