@@ -680,7 +680,7 @@ setInterval(function () {
   }
 }, 200);
 function callafterlive(sentence, callback) {
-  var name = ["who are you", "what are you", "whoe you are", "what is your name", "what's your name", "your name", "give me your name","name"];
+  var name = ["who are you", "what are you", "who you are", "what is your name", "what's your name", "your name", "give me your name","name"];
   var job = ["what you do", "what can you do", "what's your job", "what is your job"];
   var goodbye =  [ "bye", "see you later", "goodbye",];
   var goodnight = ["goodnight", "good night", "night", "going to sleep", "sleep", "tired"];
