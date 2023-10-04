@@ -22,6 +22,14 @@ function onWindowResize() {
 window.addEventListener('resize', onWindowResize);
 windowWidth = window.innerWidth;
 windowheight = window.innerheight;
+//window.localStorage.setItem("tmphouser", "");
+if (typeof(Storage) !== "undefined") {
+  var data = window.localStorage.getItem("tmphouser");
+  //data = null;
+  if (data != "" && data != undefined && data != null) {
+    document.getElementById('tmphouser').innerHTML = data;
+  }
+}
 var isnotcomp = 0;
 if (isPhone) {
   // The device is a phone.
@@ -35,32 +43,11 @@ if (isPhone) {
 }
 else {
   // The device is not a phone.
-  document.getElementById('showmetxt').style.display = "block";
-  document.getElementById('showmelnk').style.display = "block";
-  document.getElementById('showmebtn').style.display = "block";
+  document.getElementById('showmetxt').style.display = "none";
+  document.getElementById('showmelnk').style.display = "none";
+  document.getElementById('showmebtn').style.display = "none";
   document.getElementById('csslink').setAttribute("href", "master.css");
 }
-///this is the new add code
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//this is the main code
 var gid,elemnt,btncol = 0,gidd,numhdr;
 function selecttoedit(id, place) {
   var tagName = document.getElementById(id).tagName;gid=id;elemnt = tagName.toString();
@@ -87,7 +74,7 @@ function selecttoedit(id, place) {
     document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
     document.getElementById('writer').style.display = "block";document.getElementById('adder').style.display = "none";
     document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
-    document.getElementById('imagerhd').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";document.getElementById('templats').style.display = "none";
     document.getElementById('txtar').value = document.getElementById(id).innerText;
     var fontsize = document.getElementById(id).style.fontSize;
     if (fontsize != "" && fontsize != undefined) {
@@ -127,7 +114,7 @@ function selecttoedit(id, place) {
     document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "block";
     document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
     document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
-    document.getElementById('imagerhd').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";document.getElementById('templats').style.display = "none";
     document.getElementById('iframe_a').setAttribute("src", "");
   }
   else if (tagName.toString() == "IMG") {
@@ -135,7 +122,7 @@ function selecttoedit(id, place) {
       document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
       document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
       document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
-      document.getElementById('imagerhd').style.display = "block";
+      document.getElementById('imagerhd').style.display = "block";document.getElementById('templats').style.display = "none";
       var t = document.getElementById(gid).getAttribute('class');
       if (t == 'ftrelem') {
         document.getElementById('culink').setAttribute("onclick", "textstyler('dlft')");
@@ -167,7 +154,7 @@ function selecttoedit(id, place) {
     document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
     document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
     document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "block";
-    document.getElementById('imagerhd').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";document.getElementById('templats').style.display = "none";
     document.getElementById('iframe_a').setAttribute("src", "");gidd=gid;
   }
   else if (tagName.toString() == "VIDEO") {
@@ -182,7 +169,7 @@ function selecttoedit(id, place) {
     document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
     document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
     document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "block";
-    document.getElementById('imagerhd').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";document.getElementById('templats').style.display = "none";
     document.getElementById('iframe_a').setAttribute("src", "");
   }
 }
@@ -351,7 +338,7 @@ function textstyler(arg) {
     document.getElementById(gid).remove();
     holders = document.getElementsByClassName('hdrelem');
     for (var i = 0; i < holders.length; i++) {
-      document.getElementsByClassName('hdrclass')[i].setAttribute("id", "t_"+i);
+      document.getElementsByClassName('hdrelem')[i].setAttribute("id", "t_"+i);
     }
     adders('ele');
   }
@@ -437,7 +424,7 @@ function textstyler(arg) {
   }
   else if (arg == "chvid") {
     var link = document.getElementById('linkhld').value;
-    document.getElementById(gid).setAttribute("src", link);
+    document.getElementById(gid).setAttribute("href", link);
     document.getElementById('culnk').innerHTML = link;
     document.getElementById('linkhld').value = "";
     //yti = link.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
@@ -477,7 +464,7 @@ function Close(arg) {
     document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
     document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
     document.getElementById('homer').style.display = "block";document.getElementById('buttoner').style.display = "none";
-    document.getElementById('imagerhd').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";document.getElementById('templats').style.display = "none";
   }
 }
 var img, button, text, logo, header, title, subtitle, icon, link, video, ftcon, midcon, hrcon,end,csslink;
@@ -486,7 +473,7 @@ function adders(arg) {
     document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
     document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "block";
     document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
-    document.getElementById('imagerhd').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";document.getElementById('templats').style.display = "none";
   }
   else if (arg == "bgcol") {
     gid = "E_mail";elemnt = "cont";
@@ -568,7 +555,8 @@ function adders(arg) {
     numele=document.getElementsByClassName('anclass').length;
     numhdr=document.getElementsByClassName('ftrhdr').length;
     numelem=document.getElementsByClassName('link').length;
-    numele = numelem + numele;
+    logelem=document.getElementsByClassName('ftrelem').length
+    numele = numelem + numele + logelem;
     var elemnts = CNT(ftcon, numhdr);
     elemnts += CNT(flogo, numele);elemnts += end;
     document.getElementById('footerx').innerHTML += elemnts;
@@ -585,7 +573,8 @@ function adders(arg) {
     numele=document.getElementsByClassName('anclass').length;
     numhdr=document.getElementsByClassName('ftrhdr').length;
     numelem=document.getElementsByClassName('link').length;
-    numele = numelem + numele;
+    logelem=document.getElementsByClassName('ftrelem').length
+    numele = numelem + numele + logelem;
     var elemnts = CNT(ftcon, numhdr);
     elemnts += CNT(link, numele);elemnts += end;
     document.getElementById('footerx').innerHTML += elemnts;
@@ -596,6 +585,12 @@ function adders(arg) {
     var elemnts = CNT(midcon, numhdr);
     elemnts += CNT(blank, numhdr);elemnts += end
     document.getElementById('condev').innerHTML += elemnts;
+  }
+  else if (arg == "tmp") {
+    document.getElementById('imager').style.display = "none";document.getElementById('linker').style.display = "none";
+    document.getElementById('writer').style.display = "none";document.getElementById('adder').style.display = "none";
+    document.getElementById('homer').style.display = "none";document.getElementById('buttoner').style.display = "none";
+    document.getElementById('imagerhd').style.display = "none";document.getElementById('templats').style.display = "block";
   }
 }
 function CNT(arg, count) {
@@ -782,6 +777,10 @@ function openeshare(arg) {
       //document.getElementById('E_shower').style.display = "block";
       $("#E_shower").fadeToggle();
     }
+    $("#E_temp").fadeTo(1000, 0);
+    $("#E_temp").hide();
+    $("#E_temp").fadeTo(0, 100);
+    $("#E_temp").hide();
   }
   else if (arg == "cp") {
     var mail = document.getElementById('E_mail_doc').innerHTML;
@@ -829,6 +828,24 @@ function openeshare(arg) {
     document.getElementById('E_mail_doc').removeAttribute("aria-controls");
     mksound("finished.mp3");alert("E-mail Design Copied");
   }
+  else if (arg == "txt") {
+    // Sample variable content
+    var data = document.getElementById('E_mail_doc').innerHTML;
+    // Create a Blob with the variable content
+    var blob = new Blob([data], { type: "text/plain" });
+    // Create a download link
+    var url = window.URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;a.setAttribute("id", "downloadfile");
+    a.download = "Designed E-mail Code.txt"; // File name
+    document.body.appendChild(a);
+    a.click(); // Simulate a click to trigger the download
+    window.URL.revokeObjectURL(url); // Release the object URL
+    setTimeout(function () {
+      document.getElementById('downloadfile').remove();
+    }, 200);
+    mksound("finished.mp3");alert("Text File Saved Successfully");
+  }
 }
 function FFGDFL(link) {
   const regex = /https:\/\/drive\.google\.com\/file\/d\/(?<fileId>[\w-]+)\//;
@@ -847,5 +864,73 @@ function change_text(arg) {
   }
   else if (arg == 3) {
     document.getElementById(gid).innerHTML = document.getElementById('txtlnk').value;
+  }
+}
+function savetemplate(arg) {
+  if (arg == "check") {
+    if (typeof(Storage) !== "undefined") {
+      //E_temp
+      $("#E_temp").fadeToggle();
+    }
+    else {
+      alert("sorry your browser doesn't support local Saving...")
+      syrratalk("Hi, the browser you're using doesn't support template Saving, try to save your design as text file.")
+    }
+  }
+  else if (arg == "savetemplate") {
+    var tmp_name = document.getElementById('tmpname').value;
+    if (tmp_name != "") {
+      nameoftheproject = tmp_name;
+      tmp_name = tmp_name.replaceAll(" ", "");
+      var a = (tmp_name.split(",")).length;var b = (tmp_name.split(".")).length;
+      var c = (tmp_name.split("/")).length;var d = (tmp_name.split("\\")).length;
+      var e = (tmp_name.split("'")).length;var f = (tmp_name.split('"')).length;
+      var g = (tmp_name.split("@")).length;var h = (tmp_name.split("#")).length;
+      var i = (tmp_name.split("|")).length;var j = (tmp_name.split("=")).length;
+      var k = (tmp_name.split("+")).length;var l = (tmp_name.split("*")).length;
+      var m = (tmp_name.split("<")).length;var n = (tmp_name.split(">")).length;
+      if (a>1||b>1||c>1||d>1||e>1||f>1||g>1||h>1||i>1||j>1||k>1||l>1||m>1||n>1) {
+        alert("You can't use this characters ', / \\ \" @ # | = + * < >' in the name.");
+      }
+      else {
+        var data = document.getElementById('E_mail_doc').innerHTML;
+        var ow_btn = creatanelemn("div", "temp_btn", tmp_name+"_1", "", "display:none;", "", "", "", "", "temp_manger('ow', '"+tmp_name+"')", "", "Over Write Template");
+        var dl_btn = creatanelemn("div", "temp_btn", tmp_name+"_3", "", "display:none;", "", "", "", "", "temp_manger('dl', '"+tmp_name+"')", "", "Delete Template");
+        var ld_btn = creatanelemn("div", "temp_btn", tmp_name+"_2", "", "display:none;", "", "", "", "", "temp_manger('ld', '"+tmp_name+"')", "", "Load Template");
+        var mian_btn = creatanelemn("div", "temp_m_btn", "", "", "", "", "", "", "", "temp_manger('open', '"+tmp_name+"')", "", nameoftheproject);
+        var holder = creatanelemn("div", "temp_holder", tmp_name, "", "", "", "", "", mian_btn, "", "", "");
+        holder.appendChild(ow_btn);holder.appendChild(ld_btn);holder.appendChild(dl_btn);
+        document.getElementById('tmphouser').appendChild(holder);
+        window.localStorage.setItem(tmp_name, data);
+        var data = document.getElementById('tmphouser').innerHTML;
+        window.localStorage.setItem("tmphouser", data);
+        $("#E_temp").fadeToggle();
+        mksound("finished.mp3");alert("Template Saved Successfully");
+      }
+    }
+    else {
+      alert("Give Your tamplate a name.");
+      syrratalk("To save a template you must give it a name.");
+    }
+  }
+}
+function temp_manger(arg, id) {
+  if (arg == "open") {
+    $("#"+id+"_1").slideToggle();
+    $("#"+id+"_2").slideToggle();
+    $("#"+id+"_3").slideToggle();
+  }
+  else if (arg == "ow") {
+    var data = document.getElementById('E_mail_doc').innerHTML;
+    window.localStorage.setItem(id, data);alert("Template Over Writed Successfully");
+  }
+  else if (arg == "ld") {
+    var data = window.localStorage.getItem(id);
+    document.getElementById('E_mail_doc').innerHTML = data;
+  }
+  else if (arg == "dl") {
+    document.getElementById(id).remove();
+    var data = document.getElementById('tmphouser').innerHTML;
+    window.localStorage.setItem("tmphouser", data);
   }
 }

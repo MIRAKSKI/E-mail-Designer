@@ -1,6 +1,7 @@
 @media screen and (max-width: 600px) {
   html {font-size: 14px;overflow: hidden;margin: 0;padding: 0;}
   body {margin: 0;padding: 0;}
+  #gardien {margin: 0;padding: 0;}
   .home {margin: 0;display: grid;width: 100%;height: 30%;justify-content: center;overflow: hidden;}
   .hholder {position: absolute;display: block;margin: 0;padding: 0;width: 100%;height: 50%;overflow-y: scroll;}
   .hholders {display: block;margin: 0;padding: 0;width: 100%;height: 50%;}
@@ -12,6 +13,7 @@
   textarea {backdrop-filter:blur(30px);background: rgba(50,50,50,0.3);color: white;width: 97%;height: auto;min-height: 10rem;overflow-y: scroll;resize: none;}
   .homer {width: 100%;height: 100%;display: grid; justify-content: center;overflow-y: scroll;overflow-x: hidden;}
   .adder {width: 100%;height: 100%;display: none; justify-content: center;overflow-y: scroll;overflow-x: hidden;}
+  .templat {width: 100%;height: 100%;display: none; justify-content: center;overflow-y: scroll;overflow-x: hidden;}
   .writer {display: none;width: 100%;height: 100%;overflow-y: scroll;overflow-x: hidden;}
   .txttools {width: 100%;height: auto;display: flex; justify-content: space-around;padding: 0.3125rem;}
   .linker {display: none;width: 100%;height: 100%;overflow-y: scroll;overflow-x: hidden;}
@@ -40,13 +42,25 @@
   #E_mailcopebttn {position: fixed;top: 1.25rem;left: 1.25rem;font-size: 1.5625rem;text-align: center;vertical-align: middle;padding: 0.3125rem 0.5rem;transition: 0.2s;z-index: 151;width: 3.125rem;height: 3.125rem;background: transparent;color: black}
   #E_mailcopebttn:hover {color: red;background-color: rgba(50,50,50,0.3)}
   #E_shower {position: fixed;top: 0;left: 0;height: 100%;width: 100%;background: rgba(50,50,50,0.4);backdrop-filter:blur(15px);z-index: 150;}
+  #E_temp {position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);height: 100%;width: 100%;background: rgba(50,50,50,0.4);backdrop-filter:blur(15px);z-index: 150;}
   #E_copie {opacity: 0.5;background: transparent;border: none;color: rgba(50,50,50,0.2);}
   .copybtn {background: rgba(50,50,50,0.2);backdrop-filter:blur(5px);color: white;font-weight: bold;font-size: 1.25rem;transition: 0.2s;margin: 0.3125rem;padding: 0.3125rem;}
+  #tmpname {background: rgba(240,240,240,0.5);backdrop-filter:blur(5px);color: black;font-size: 1.25rem;margin: 0.3125rem;padding: 0.3125rem;text-align: center;}
   .copybtn:hover {background: rgba(50,50,50,0.6);backdrop-filter:blur(15px);}
   #ipara_a {position: absolute;top: 0;left: 0;display:block;width: 100%;z-index: 150;}
+  .authore {position: fixed;bottom: 0px;left: 0px;color: rgba(255,255,255,0.8);padding-left: 20px;font-size: 14px;}
+  .shareclass .copybtn {cursor: pointer;}
+  .tmphouser {width: 100%;overflow-x: hidden;width: auto;min-width: 400px;}
   ::-webkit-scrollbar {width: 8px;}
   ::-webkit-scrollbar-track {background: transparent;}
   ::-webkit-scrollbar-thumb {background: #888;}
   ::-webkit-scrollbar-thumb:hover {background: #555;}
   ::-webkit-scrollbar-thumb {border-radius: 2px;}
+  .temp_holder {display: grid;align-items: center;}
+  .temp_m_btn {background: rgba(50,50,50,0.7);backdrop-filter:blur(5px);color: white;font-size: 1.25rem;padding: 0.3125rem;text-align: center;width: 100%;cursor: pointer;transition: 0.2s;}
+  .temp_m_btn:hover {background: rgba(80,80,80,0.5);}
+  .temp_btn {background: rgba(180,180,180,0.7);backdrop-filter:blur(5px);color: white;font-size: 1.25rem;padding: 0.3125rem;text-align: center;width: 100%;cursor: pointer;transition: 0.1s;}
+  .temp_btn:hover {background: rgba(100,100,100,0.7);}
+  .shareclass input[type="button"] {position: fixed;top: 15px;left: 15px;width: 30px;height: 30px;border-radius: 50%;border: none;background: transparent;color: black;transition: 0.2s;font-size: 25px;font-weight: bolder;cursor: pointer;}
+  .shareclass input[type="button"]:hover {color: red;}
 }
