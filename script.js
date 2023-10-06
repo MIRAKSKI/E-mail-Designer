@@ -564,8 +564,7 @@ function adders(arg) {
   }
   else if (arg == "SL") {
     numhdr=document.getElementsByClassName('anclass').length;
-    var elemnts = CNT(ftcon, numhdr);
-    elemnts += CNT(icon, numhdr);elemnts += end;
+    var elemnts = CNT(icon, numhdr);
     document.getElementById('diva_0').innerHTML += elemnts;
     numhdr +=1;
   }
@@ -755,7 +754,7 @@ text = ["<p style=@@margin-left:20px;margin-right:20px;@@ onclick=@@selecttoedit
 title= ["<p style=@@margin-left:20px;margin-right:20px;font-size:25px; font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>AIESEC IN OUARGLA</p>"];
 blank= ["<p style=@@margin-left:20px;margin-right:20px; font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@><br /><br /></p>"];
 subtitle=["<p style=@@margin-left:20px;margin-right:20px;font-size:21px;font-weight: bold;@@ onclick=@@selecttoedit(this.id)@@ id=@@p_", "@@>Global Impact</p>"];
-icon=["<a href=@@#@@style=@@margin: 20px;@@ target=@@iframe_a@@ title=@@instagram@@ onclick=@@selecttoedit(this.id)@@ id=@@a_", "@@ class=@@anclass@@>                 <img style=@@margin: 10px;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/5.png@@ alt=@@aiesec in ouargla@@ width=@@70%;@@>               </a>"];
+icon=["<a href=@@#@@style=@@margin: 20px;width:8%;@@ target=@@iframe_a@@ onclick=@@selecttoedit(this.id)@@ id=@@a_", "@@ class=@@anclass@@>                 <img src=@@https://mirakski.github.io/E-mail-Designer/pics/5.png@@ alt=@@aiesec in ouargla@@ width=@@100%;@@>               </a>"];
 header=["<p class=@@hdrelem@@ style=@@margin-left:20px;margin-right:20px;margin-bottom:20px;font-size:25px;text-align:center; font-Weight:bold;@@  onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>AIESEC in Ouargla</p>"];
 logo=["<img class=@@hdrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@t_", "@@>"];
 flogo=["<img class=@@ftrelem@@ style=@@margin: 20px;margin-left:auto;margin-right:auto;@@ src=@@https://mirakski.github.io/E-mail-Designer/pics/1.png@@ alt=@@aiesec in ouargla@@ width=@@30%;@@ onclick=@@selecttoedit(this.id, $ftr$)@@ id=@@a_", "@@>"];
@@ -784,9 +783,8 @@ function openeshare(arg) {
   }
   else if (arg == "cp") {
     var mail = document.getElementById('E_mail_doc').innerHTML;
-    mail = mail.replaceAll("iframe_a", "_blank");mail = mail.replaceAll("view&amp;id=", "Alkarim##idlink");console.log(mail);
-    mail = mail.replaceAll("onclick=", "");mail = mail.replaceAll("id=", "");
-    mail = mail.replaceAll("Alkarim##idlink", "view&amp;id=");console.log(mail);
+    mail = mail.replaceAll("iframe_a", "_blank");
+    mail = mail.replaceAll("onclick=", "");//mail = mail.replaceAll("id=", "");
     document.getElementById('E_copie').value=mail;document.getElementById('E_copie').style.display = "block";
     document.getElementById('E_copie').select();document.execCommand("copy");
     document.getElementById('E_copie').style.display = "none";
