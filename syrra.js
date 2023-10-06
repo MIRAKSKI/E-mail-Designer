@@ -427,14 +427,14 @@ function syrrahelp(arg, url, placehoder) {
     savetxtchat()
 }
 function openvideo(arg) {
-  $("#syrradiv").fadeToggle();
-  //document.getElementById('syrradiv').style.display = "block";
+  //$("#syrradiv").fadeToggle();
+  document.getElementById('syrradiv').style.display = "block";
   document.getElementById('syrravid').setAttribute("src", arg);
   op();
 }
 function closesyrraex() {
-  $("#syrradiv").fadeToggle();
-  //document.getElementById('syrradiv').style.display = "none";
+  //$("#syrradiv").fadeToggle();
+  document.getElementById('syrradiv').style.display = "none";
   document.getElementById('syrravid').pause();
 }
 function tips() {
