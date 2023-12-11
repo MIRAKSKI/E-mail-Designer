@@ -753,7 +753,4 @@ function callafterlive(sentence, callback) {
     window.localStorage.setItem("submit", "OKAY");
     return
   }
-  setTimeout(function () {
-    callback(sortedtobics)
-  }, 100);
 }
